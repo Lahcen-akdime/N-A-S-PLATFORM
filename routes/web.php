@@ -1,9 +1,11 @@
 <?php
 
-use App\Http\Controllers\LoginController;
+use App\Http\Controllers\Auth\LoginController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('register'); 
+// Route::get('/', function () { return view('register'); });
+Route::get('/', function () { return view('Home'); });
+Route::controller(LoginController::class)->group(function (){
+    Route::get('/shoose','shoose');
     });
-Route::post('/create',[LoginController::class,"create"])->name('create');
+Route::resource('login',LoginController::class);
