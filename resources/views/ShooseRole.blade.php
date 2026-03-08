@@ -20,51 +20,51 @@
       </div>
 
       <!-- Cards -->
+      <form action="">
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-10">
+  <!-- Card Client -->
+  <div class="glass-card animate-fade-up delay-1" id="card-client" onclick="selectRole('client')">
 
-        <!-- Card Client -->
-        <div class="glass-card animate-fade-up delay-1" id="card-client" onclick="selectRole('client')">
+    <span class="check-icon absolute top-5 right-5 w-6 h-6 rounded-full bg-gray-900 flex items-center justify-center">
+      <svg width="11" height="11" viewBox="0 0 12 12" fill="none">
+        <path d="M2 6L5 9L10 3" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </span>
 
-          <span class="check-icon absolute top-5 right-5 w-6 h-6 rounded-full bg-gray-900 flex items-center justify-center">
-            <svg width="11" height="11" viewBox="0 0 12 12" fill="none">
-              <path d="M2 6L5 9L10 3" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </span>
+    <div class="role-icon-wrap">
+      <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+        <circle cx="16" cy="11" r="5" stroke="#111827" stroke-width="1.8" stroke-linecap="round"/>
+        <path d="M6 27c0-5.523 4.477-10 10-10s10 4.477 10 10" stroke="#111827" stroke-width="1.8" stroke-linecap="round"/>
+      </svg>
+    </div>
 
-          <div class="role-icon-wrap">
-            <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
-              <circle cx="16" cy="11" r="5" stroke="#111827" stroke-width="1.8" stroke-linecap="round"/>
-              <path d="M6 27c0-5.523 4.477-10 10-10s10 4.477 10 10" stroke="#111827" stroke-width="1.8" stroke-linecap="round"/>
-            </svg>
-          </div>
+    <h2 class="text-base font-semibold text-gray-900 mb-2">Client</h2>
+    <p class="text-sm text-gray-400 leading-relaxed">Je cherche un professionnel pour réaliser mes travaux à domicile.</p>
+  </div>
 
-          <h2 class="text-base font-semibold text-gray-900 mb-2">Client</h2>
-          <p class="text-sm text-gray-400 leading-relaxed">Je cherche un professionnel pour réaliser mes travaux à domicile.</p>
-        </div>
+  <!-- Card Bricoleur -->
+  <div class="glass-card animate-fade-up delay-2" id="card-bricoleur" onclick="selectRole('bricoleur')">
 
-        <!-- Card Bricoleur -->
-        <div class="glass-card animate-fade-up delay-2" id="card-bricoleur" onclick="selectRole('bricoleur')">
+    <span class="check-icon absolute top-5 right-5 w-6 h-6 rounded-full bg-gray-900 flex items-center justify-center">
+      <svg width="11" height="11" viewBox="0 0 12 12" fill="none">
+        <path d="M2 6L5 9L10 3" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </span>
 
-          <span class="check-icon absolute top-5 right-5 w-6 h-6 rounded-full bg-gray-900 flex items-center justify-center">
-            <svg width="11" height="11" viewBox="0 0 12 12" fill="none">
-              <path d="M2 6L5 9L10 3" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </span>
+    <div class="role-icon-wrap">
+      <svg width="32" height="32" viewBox="0 0 34 34" fill="none">
+        <path d="M8 26L24 10" stroke="#111827" stroke-width="1.8" stroke-linecap="round"/>
+        <path d="M22 7l5 5-2.5 2.5-5-5L22 7z" stroke="#111827" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M7 22l2.5 5 2.5-2.5-5-2.5z" stroke="#111827" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+        <circle cx="25" cy="8" r="2.5" stroke="#111827" stroke-width="1.5"/>
+      </svg>
+    </div>
 
-          <div class="role-icon-wrap">
-            <svg width="32" height="32" viewBox="0 0 34 34" fill="none">
-              <path d="M8 26L24 10" stroke="#111827" stroke-width="1.8" stroke-linecap="round"/>
-              <path d="M22 7l5 5-2.5 2.5-5-5L22 7z" stroke="#111827" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-              <path d="M7 22l2.5 5 2.5-2.5-5-2.5z" stroke="#111827" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-              <circle cx="25" cy="8" r="2.5" stroke="#111827" stroke-width="1.5"/>
-            </svg>
-          </div>
-
-          <h2 class="text-base font-semibold text-gray-900 mb-2">Bricoleur</h2>
-          <p class="text-sm text-gray-400 leading-relaxed">Je propose mes compétences et services aux particuliers.</p>
-        </div>
-
-      </div>
+    <h2 class="text-base font-semibold text-gray-900 mb-2">Bricoleur</h2>
+    <p class="text-sm text-gray-400 leading-relaxed">Je propose mes compétences et services aux particuliers.</p>
+  </div>
+</div>
+</form>
 
       <!-- Validate -->
       <div class="animate-fade-up delay-3 flex justify-center">
@@ -88,6 +88,8 @@
     }
     function handleValidate() {
       if (!selectedRole) return;
-      alert('Rôle sélectionné : ' + (selectedRole === 'client' ? 'Client' : 'Bricoleur'));
+      else{
+      window.location.href='/'+selectedRole+'/create';
+      }
     }
   </script>
