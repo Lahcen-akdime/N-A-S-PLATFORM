@@ -12,6 +12,9 @@
       </div>
 
       <!-- Form inside glass card -->
+  <form action="client.store" method="POST">
+    @csrf
+    @method('POST')
       <div class="glass-card animate-fade-up delay-1 !items-stretch !text-left gap-4">
 
         <!-- Name -->
@@ -104,10 +107,10 @@
         <div class="w-full border-t border-gray-100 my-1"></div>
 
         <!-- Submit -->
-        <button class="btn-validate w-full animate-fade-up delay-4">
+        <button type="submit" class="btn-validate w-full animate-fade-up delay-4">
           Créer mon compte
         </button>
-
+  </form>
         <!-- Login link -->
         <p class="text-center text-xs text-gray-400">
           Déjà un compte ?

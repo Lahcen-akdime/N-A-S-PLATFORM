@@ -42,8 +42,8 @@
     <p class="text-sm text-gray-400 leading-relaxed">Je cherche un professionnel pour réaliser mes travaux à domicile.</p>
   </div>
 
-  <!-- Card Bricoleur -->
-  <div class="glass-card animate-fade-up delay-2" id="card-bricoleur" onclick="selectRole('bricoleur')">
+  <!-- Card worker -->
+  <div class="glass-card animate-fade-up delay-2" id="card-worker" onclick="selectRole('worker')">
 
     <span class="check-icon absolute top-5 right-5 w-6 h-6 rounded-full bg-gray-900 flex items-center justify-center">
       <svg width="11" height="11" viewBox="0 0 12 12" fill="none">
@@ -60,7 +60,7 @@
       </svg>
     </div>
 
-    <h2 class="text-base font-semibold text-gray-900 mb-2">Bricoleur</h2>
+    <h2 class="text-base font-semibold text-gray-900 mb-2">worker</h2>
     <p class="text-sm text-gray-400 leading-relaxed">Je propose mes compétences et services aux particuliers.</p>
   </div>
 </div>
@@ -82,7 +82,7 @@
     function selectRole(role) {
       selectedRole = role;
       document.getElementById('card-client').classList.remove('selected');
-      document.getElementById('card-bricoleur').classList.remove('selected');
+      document.getElementById('card-worker').classList.remove('selected');
       document.getElementById('card-' + role).classList.add('selected');
       document.getElementById('btn-validate').disabled = false;
     }

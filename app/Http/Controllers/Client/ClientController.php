@@ -3,6 +3,9 @@
 namespace App\Http\Controllers\Client;
 
 use App\Http\Controllers\Controller;
+use App\Http\Helpers\Validator;
+use App\Models\client;
+use App\Models\User;
 // use App\Models\client;
 use Illuminate\Http\Request;
 
@@ -29,7 +32,9 @@ class ClientController extends Controller
      */
     public function store(Request $request)
     {
-        //
+    Validator::RegisterValidator($request);
+    User::create(array_merge($request->all(),['role'=>'worker']));
+    return view('client_space');
     }
 
     /**

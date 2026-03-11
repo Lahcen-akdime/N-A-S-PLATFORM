@@ -10,8 +10,8 @@ $role = Auth::user()->role ;
 if($role == 'client'){
     return view('client_space');
 }
-else if($role == 'bricoleur'){
-    return view('bricoleur');
+else if($role == 'worker'){
+    return view('worker');
 }
 else{
     return view('admin_space');

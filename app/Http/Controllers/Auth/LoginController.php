@@ -31,7 +31,7 @@ class LoginController extends Controller
     }
     public function store(Request $request){
     Validator::RegisterValidator($request);
-    User::create(array_merge($request->all(),['role'=>'bricoleur']));
+    User::create(array_merge($request->all(),['role'=>'worker']));
     return view('client_space');
     }
     public function edit(){
