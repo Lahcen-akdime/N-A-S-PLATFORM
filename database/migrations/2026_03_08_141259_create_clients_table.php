@@ -12,10 +12,13 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('clients', function (Blueprint $table) {
-        $table->boolean('is_banned');
-        $table->integer('evaluation');
+        $table->id();
+        $table->boolean('is_banned')->default(false);
+        $table->integer('evaluation')->default(0);
         $table->string('adress');
         $table->string('ville');
+        $table->foreignId('user_id')->constrained();
+        $table->timestamps();
         });
     }
 

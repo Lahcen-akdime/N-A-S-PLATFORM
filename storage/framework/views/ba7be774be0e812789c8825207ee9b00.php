@@ -21,6 +21,6 @@
       </nav>
 
       <!-- Login -->
-      @yield('login_logout_buttons')
+      <?php echo $__env->yieldContent('login_logout_buttons'); ?>
     </div>
-  </header>
+  </header><?php /**PATH C:\laragon\www\N-A-S\resources\views/components/header.blade.php ENDPATH**/ ?>

@@ -4,10 +4,13 @@ namespace App\Http\Controllers\Client;
 
 use App\Http\Controllers\Controller;
 use App\Http\Helpers\Validator;
+use App\Http\Requests\clientStoreRequest;
 use App\Models\client;
 use App\Models\User;
 // use App\Models\client;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class ClientController extends Controller
 {
@@ -16,7 +19,8 @@ class ClientController extends Controller
      */
     public function index()
     {
-        //
+        $user = User::find(Auth::user()->id)->with('client')->first();
+        return view('client.home',compact('user'));
     }
 
     /**
@@ -30,11 +34,21 @@ class ClientController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(clientStoreRequest $request)
     {
-    Validator::RegisterValidator($request);
-    User::create(array_merge($request->all(),['role'=>'worker']));
-    return view('client_space');
+            $user = User::create([
+                'name' => $request->name ,
+                'email' => $request->email ,
+                'password' => $request->password ,
+                'role' => 'client' ,
+            ]);
+            client::create([
+                'ville' => $request->ville ,
+                'adress' => $request->adress ,
+                'user_id'=>$user->id ,
+            ]);
+            Auth::attempt(['email'=>$request->email,'password'=>$request->password]);
+        return to_route('client.index');
     }
 
     /**

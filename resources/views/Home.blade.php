@@ -2,7 +2,7 @@
 @section('login_logout_buttons')
       <!-- CTA -->
       <div class="flex items-center gap-3">
-        <a href="/login" class="text-sm font-medium text-gray-700 hover:text-gray-900 transition-colors">Login</a>
+        <a href="{{route('login.create')}}" class="text-sm font-medium text-gray-700 hover:text-gray-900 transition-colors">Login</a>
         <a href="/shoose" class="btn-primary text-sm font-semibold px-4 py-2 rounded-full hidden sm:inline-block">
           Sign in
         </a>

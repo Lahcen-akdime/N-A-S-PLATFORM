@@ -8,7 +8,7 @@ class Rediraction {
 public static function redirect(){
 $role = Auth::user()->role ;
 if($role == 'client'){
-    return view('client_space');
+    return to_route('client.index');
 }
 else if($role == 'worker'){
     return view('worker');
