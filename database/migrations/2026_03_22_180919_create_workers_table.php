@@ -14,6 +14,16 @@ return new class extends Migration
         Schema::create('workers', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
+            $table->integer('experience_years');
+            // carte national doc ??
+            // certificats docs ??
+            $table->integer('evaluation');
+            $table->string('adress');
+            $table->foreignId('work_id');
+            $table->decimal('latitude');
+            $table->decimal('longitude');
+            $table->boolean('is_banned');
+            $table->boolean('is_accepted');
         });
     }
 
