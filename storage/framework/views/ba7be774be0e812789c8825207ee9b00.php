@@ -14,9 +14,9 @@
       <!-- Nav -->
       <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-gray-500">
         <!-- <a href="#" class="hover:text-gray-900 transition-colors">Solutions</a> -->
-        <a href="/home" class="hover:text-gray-900 transition-colors">Dashboard</a>
+        <a href="<?php echo e(route('Dashboard')); ?>" class="hover:text-gray-900 transition-colors">Home</a>
         <a href="#" class="hover:text-gray-900 transition-colors">Profile</a>
-        <a href="#" class="hover:text-gray-900 transition-colors">Demandes</a>
+        <a href="<?php echo e(route('demande.index')); ?>" class="hover:text-gray-900 transition-colors">Demandes</a>
         <a href="#" class="hover:text-gray-900 transition-colors">Contact us</a>
       </nav>
 

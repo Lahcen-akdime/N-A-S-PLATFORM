@@ -1,14 +1,14 @@
-@extends('layouts.app')
-@section('login_logout_buttons')
+
+<?php $__env->startSection('login_logout_buttons'); ?>
       <!-- CTA -->
       <div class="flex items-center gap-3">
-        <a href="{{route('Logout')}}" class="btn-primary text-sm font-semibold px-4 py-2 rounded-full hidden sm:inline-block">
+        <a href="<?php echo e(route('Logout')); ?>" class="btn-primary text-sm font-semibold px-4 py-2 rounded-full hidden sm:inline-block">
           Logout
         </a>
       </div>
-@endsection
+<?php $__env->stopSection(); ?>
   <!-- ===== MAIN ===== -->
-@section('maincontent')
+<?php $__env->startSection('maincontent'); ?>
   <!-- MAIN -->
   <main class="flex-1 max-w-6xl mx-auto w-full px-6 py-12">
 
@@ -116,4 +116,5 @@
 
     </div>
   </main>
-@endsection
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layouts.app', array_diff_key(get_defined_vars(), ['__data' => 1, '__path' => 1]))->render(); ?><?php /**PATH C:\laragon\www\N-A-S\resources\views/client/demandes.blade.php ENDPATH**/ ?>
