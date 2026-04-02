@@ -1,18 +1,22 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Client;
 
-use App\Models\Worker;
+use App\Http\Controllers\Controller;
+
+use App\Http\Requests\DemandeRequest;
+use App\Models\Demande;
+use App\Models\work;
 use Illuminate\Http\Request;
 
-class WorkerController extends Controller
+class DemandeController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        //
+        return view('client.demandes') ;
     }
 
     /**
@@ -20,7 +24,8 @@ class WorkerController extends Controller
      */
     public function create()
     {
-        //
+        $works = work::all() ;
+        return view('client.Locate',compact('works')) ;
     }
 
     /**
@@ -28,13 +33,13 @@ class WorkerController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Worker $worker)
+    public function show(Demande $demande)
     {
         //
     }
@@ -42,7 +47,7 @@ class WorkerController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Worker $worker)
+    public function edit(Demande $demande)
     {
         //
     }
@@ -50,7 +55,7 @@ class WorkerController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Worker $worker)
+    public function update(Request $request, Demande $demande)
     {
         //
     }
@@ -58,7 +63,7 @@ class WorkerController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Worker $worker)
+    public function destroy(Demande $demande)
     {
         //
     }

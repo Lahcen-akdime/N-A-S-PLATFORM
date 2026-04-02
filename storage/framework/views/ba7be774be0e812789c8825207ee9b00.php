@@ -17,6 +17,7 @@
         <a href="<?php echo e(route('Dashboard')); ?>" class="hover:text-gray-900 transition-colors">Home</a>
         <a href="#" class="hover:text-gray-900 transition-colors">Profile</a>
         <a href="<?php echo e(route('demande.index')); ?>" class="hover:text-gray-900 transition-colors">Demandes</a>
+        <a href="<?php echo e(route('demande.create')); ?>" class="hover:text-gray-900 transition-colors">Locate</a>
         <a href="#" class="hover:text-gray-900 transition-colors">Contact us</a>
       </nav>
 

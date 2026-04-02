@@ -1,19 +1,19 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Worker;
 
-use App\Http\Requests\DemandeRequest;
-use App\Models\Demande;
+use App\Http\Controllers\Controller;
+use App\Models\Worker;
 use Illuminate\Http\Request;
 
-class DemandeController extends Controller
+class WorkerController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        return view('client.demandes') ;
+        //
     }
 
     /**
@@ -29,13 +29,13 @@ class DemandeController extends Controller
      */
     public function store(Request $request)
     {
-        
+        //
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Demande $demande)
+    public function show(Worker $worker)
     {
         //
     }
@@ -43,7 +43,7 @@ class DemandeController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Demande $demande)
+    public function edit(Worker $worker)
     {
         //
     }
@@ -51,7 +51,7 @@ class DemandeController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Demande $demande)
+    public function update(Request $request, Worker $worker)
     {
         //
     }
@@ -59,7 +59,7 @@ class DemandeController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Demande $demande)
+    public function destroy(Worker $worker)
     {
         //
     }

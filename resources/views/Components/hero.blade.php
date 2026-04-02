@@ -19,7 +19,7 @@
         its a web application designed to bridge the gap between skilled tradespeople and individuals.
         This platform enables users to easily find a qualified professional in a specific field, based on their immediate needs.
         </p>
-      @if(!$user)
+     
         <div class="animate-fade-up delay-3 flex items-center gap-3 flex-wrap">
           <a href="#" class="btn-primary px-6 py-3 rounded-full text-sm font-semibold">
             Try App For Free
@@ -28,13 +28,7 @@
             Book A Demo
           </a>
         </div>
-      @else
-        <div class="animate-fade-up delay-3 flex items-center gap-3 flex-wrap">
-          <a href="#" class="btn-primary px-6 py-3 rounded-full text-sm font-semibold">
-            Passer une demande
-          </a>
-        </div>
-      @endif
+      
         <!-- Buttons -->
       </div>
 

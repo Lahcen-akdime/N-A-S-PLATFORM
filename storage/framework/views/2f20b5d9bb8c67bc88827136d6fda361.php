@@ -7,6 +7,9 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="<?php echo e(asset('css/style.css')); ?>">
+<link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <script src="<?php echo e(asset('js/script.js')); ?>" defer></script>
 </head>
 <body class="bg-white text-gray-900 antialiased">
   <!-- ===== HEADER ===== -->
@@ -104,6 +107,6 @@
       </div>
     </div>
   </footer>
-
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
 </body>
 </html><?php /**PATH C:\laragon\www\N-A-S\resources\views/layouts/app.blade.php ENDPATH**/ ?>

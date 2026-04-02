@@ -7,6 +7,7 @@ use App\Http\Helpers\Validator;
 use App\Http\Requests\clientStoreRequest;
 use App\Models\client;
 use App\Models\User;
+use App\Models\work;
 // use App\Models\client;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -28,6 +29,7 @@ class ClientController extends Controller
      */
     public function create()
     {
+        $works = work::all() ;
         return view('Auth.client_register') ;
     }
 

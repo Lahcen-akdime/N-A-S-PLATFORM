@@ -1,4 +1,3 @@
-
 <?php $__env->startSection('login_logout_buttons'); ?>
       <!-- CTA -->
       <div class="flex items-center gap-3">
@@ -10,6 +9,8 @@
   <!-- ===== MAIN ===== -->
 <?php $__env->startSection('maincontent'); ?>
   <!-- MAIN -->
+  <!-- <button id="btn">locate me</h1> -->
+  <h1 id="test"></h1>
   <main class="flex-1 max-w-6xl mx-auto w-full px-6 py-12">
 
     <!-- Welcome + CTA -->
@@ -19,7 +20,7 @@
         <h1 class="text-2xl font-bold text-gray-900 tracking-tight">Bonjour 👋</h1>
       </div>
 
-      <a href="create-demande.html"
+      <a href="<?php echo e(route('demande.create')); ?>"
          class="btn-primary inline-flex items-center gap-2 px-5 py-3 rounded-full text-sm font-semibold self-start sm:self-auto">
         <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
           <path d="M7 1v12M1 7h12" stroke="white" stroke-width="2" stroke-linecap="round"/>
