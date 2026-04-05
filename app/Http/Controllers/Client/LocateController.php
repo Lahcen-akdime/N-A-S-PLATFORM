@@ -8,11 +8,12 @@ use Illuminate\Http\Request;
 
 class LocateController extends Controller
 {
-    public function index($latitude,$longitude,$work,$evaluation)
+    public function index($work,$evaluation)
     {
-        $workers = Worker::with('work')->where('evaluation','>=',$evaluation)
-                                    //    ->where('workers.work.name','=',$work)
-                                       ->get();
+        $workers = Worker::with('work')->where('evaluation','<=',$evaluation)
+                                       ->whereHas('work',function ($query) use ($work){
+                                        $query->where('name','=',$work);
+                                       })->get();
         if($workers){
             return response()->json([
                 'Worker' => $workers ,
@@ -23,11 +24,5 @@ class LocateController extends Controller
                 'error' => 'workers not found' ,
             ],500) ; 
         }
-        // return response()->json([
-        //     'latitude' => $latitude ,
-        //     'longitude' => $longitude ,
-        //     'work' => $work ,
-        //     'evaluation' => $evaluation
-        // ],200) ;
     }
 }

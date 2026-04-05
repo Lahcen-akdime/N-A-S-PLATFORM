@@ -29,15 +29,15 @@ class WorkerController extends Controller
      */
     public function store(Request $request)
     {
-        //
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Worker $worker)
+    public function show($id)
     {
-        //
+        return dd($id);
+        
     }
 
     /**

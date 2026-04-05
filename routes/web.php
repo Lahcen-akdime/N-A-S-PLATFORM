@@ -4,6 +4,7 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Client\ClientController;
 use App\Http\Controllers\Client\DemandeController as ClientDemandeController;
 use App\Http\Controllers\DemandeController;
+use App\Http\Controllers\Worker\WorkerController;
 use App\Http\Middleware\login_middleware;
 use GuzzleHttp\Client;
 use Illuminate\Support\Facades\Route;
@@ -20,7 +21,7 @@ Route::controller(LoginController::class)->group(function (){
 
 Route::resource('client',ClientController::class)->except('index');
 Route::resource('login',LoginController::class);
-
+Route::get('worker/profile/{id}',[WorkerController::class,'show']);
 Route::middleware(login_middleware::class)->group(function () {
     Route::resource('client',ClientController::class)->only('index');
     Route::resource('demande',ClientDemandeController::class);
