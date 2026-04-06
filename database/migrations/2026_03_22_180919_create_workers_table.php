@@ -19,7 +19,8 @@ return new class extends Migration
             // certificats docs ??
             $table->integer('evaluation')->default(0);
             $table->string('adress');
-            $table->foreignId('work_id');
+            $table->foreignId('work_id')->constrained();
+            $table->foreignId('user_id')->constrained()->cascadeOnDelete() ;
             $table->string('latitude');
             $table->string('longitude');
             $table->boolean('is_banned')->default(false);

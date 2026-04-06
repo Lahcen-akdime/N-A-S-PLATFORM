@@ -3,6 +3,7 @@
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Client\ClientController;
 use App\Http\Controllers\Client\DemandeController as ClientDemandeController;
+use App\Http\Controllers\Client\LocateController;
 use App\Http\Controllers\DemandeController;
 use App\Http\Controllers\Worker\WorkerController;
 use App\Http\Middleware\login_middleware;

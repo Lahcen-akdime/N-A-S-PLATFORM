@@ -36,7 +36,8 @@ class WorkerController extends Controller
      */
     public function show($id)
     {
-        return dd($id);
+        $worker = Worker::findOrFail($id) ;
+        return view('WorkerProfile',compact('worker'));
         
     }
 

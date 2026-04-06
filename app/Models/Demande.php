@@ -6,5 +6,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class Demande extends Model
 {
-    protected $fillable = ['state','service_id','client_id','worker_id'];
+    protected $fillable = ['title','state','client_id','worker_id','description','emergency'];
 }

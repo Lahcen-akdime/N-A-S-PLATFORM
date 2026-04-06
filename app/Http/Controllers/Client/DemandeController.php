@@ -7,7 +7,9 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\DemandeRequest;
 use App\Models\Demande;
 use App\Models\work;
+use App\Models\Worker;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class DemandeController extends Controller
 {
@@ -24,7 +26,7 @@ class DemandeController extends Controller
      */
     public function create()
     {
-        $works = work::all() ;
+        $works = Work::all() ;
         return view('client.Locate',compact('works')) ;
     }
 
@@ -34,14 +36,24 @@ class DemandeController extends Controller
     public function store(Request $request)
     {
         
+        $user_id = Auth::user()->id ;
+        Demande::credate([
+            'title'=>$request->title,
+            'state'=>$request->state,
+            'client_id'=>$user_id,
+            'worker_id'=>$request->worker_id,
+            'description'=>$request->description,
+            'emergency'=>$request->emergency,
+        ]);
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Demande $demande)
+    public function show($id)
     {
-        //
+        $worker = Worker::findOrFail($id) ;
+        return view('Client.demandeValidate',compact('worker'));
     }
 
     /**

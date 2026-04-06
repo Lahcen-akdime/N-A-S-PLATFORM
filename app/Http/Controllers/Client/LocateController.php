@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Client;
 
 use App\Http\Controllers\Controller;
+use App\Models\Work;
 use App\Models\Worker;
 use Illuminate\Http\Request;
 
@@ -25,4 +26,5 @@ class LocateController extends Controller
             ],500) ; 
         }
     }
+
 }

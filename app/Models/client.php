@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class Client extends User
 {
@@ -15,4 +16,7 @@ class Client extends User
   public function user() : BelongsTo {
     return $this->belongsTo(User::class) ;
   }  
+  public function workers() : BelongsToMany {
+    return $this->belongsToMany(Worker::class,'demandes');
+  }
 }

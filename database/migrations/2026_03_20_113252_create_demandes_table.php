@@ -14,10 +14,12 @@ return new class extends Migration
         Schema::create('demandes', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->enum('state',['En cours','Fini','En attente']);
-            $table->integer('work_id');
+            $table->string('title');
+            $table->enum('state',['Accepted','Rejected','Pending','done'])->default('Pending');
+            $table->enum('emergency',['normal','urgent','flexible']);
+            $table->integer('worker_id');
             $table->foreignId('client_id');
-            $table->text('service');
+            $table->text('description')->nullable();
         });
     }
 
