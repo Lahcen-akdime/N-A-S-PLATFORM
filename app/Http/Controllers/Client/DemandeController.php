@@ -35,7 +35,6 @@ class DemandeController extends Controller
      */
     public function store(Request $request)
     {
-        
         $user_id = Auth::user()->id ;
         Demande::credate([
             'title'=>$request->title,
