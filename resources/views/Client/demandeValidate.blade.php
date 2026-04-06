@@ -27,6 +27,8 @@
       </div>
  
       <!-- Form card -->
+    <form action="{{route('demande.store')}}" method="POST">
+        @csrf
       <div class="glass-card !items-start !text-left !cursor-default !rounded-2xl !p-10 gap-8 animate-fade-up delay-1 w-full">
         <!-- Worker info -->
     <div class="flex items-center gap-8 w-full">
@@ -47,38 +49,40 @@
           </div>
         </div>
     </div>
-        // ['title','state','client_id','worker_id','description','emergency']
+        // ['state','client_id','worker_id','','emergency']
         <div class="w-full border-t border-gray-100"></div>
  
         <!-- Title of request -->
         <div class="flex flex-col gap-2 w-full">
           <label class="text-xs font-semibold text-gray-500 uppercase tracking-widest">Titre de la demande</label>
-          <input type="text" placeholder="Ex : Fuite d'eau sous l'évier de la cuisine"
+          <input type="text" placeholder="Ex : Fuite d'eau sous l'évier de la cuisine" name='title' value="i need a service" required
             class="w-full px-4 py-3 rounded-xl border border-gray-200 bg-gray-50 text-sm text-gray-900 placeholder-gray-400 outline-none focus:border-gray-900 focus:bg-white focus:ring-2 focus:ring-gray-900/5 transition-all" />
         </div>
+        
+        <input type="hidden" name="worker_id" value="{{$worker->id}}">
  
         <!-- Description -->
         <div class="flex flex-col gap-2 w-full">
           <label class="text-xs font-semibold text-gray-500 uppercase tracking-widest">Description</label>
-          <textarea rows="6" placeholder="Décrivez le problème en détail : depuis quand, où exactement, ce que vous avez déjà essayé…"
+          <textarea name='description' rows="6" placeholder="Décrivez le problème en détail : depuis quand, où exactement, ce que vous avez déjà essayé…"
             class="w-full px-4 py-3 rounded-xl border border-gray-200 bg-gray-50 text-sm text-gray-900 placeholder-gray-400 outline-none focus:border-gray-900 focus:bg-white focus:ring-2 focus:ring-gray-900/5 transition-all resize-none leading-relaxed"></textarea>
           <p class="text-xs text-gray-400 text-right">0 / 500 caractères</p>
         </div>
  
         <div class="w-full border-t border-gray-100"></div>
  
-        <!-- Urgency -->
+
         <div class="flex flex-col gap-3 w-full">
           <label class="text-xs font-semibold text-gray-500 uppercase tracking-widest">Urgence</label>
           <div class="flex gap-3 flex-wrap">
             <label class="flex items-center gap-2 px-4 py-2.5 rounded-xl border border-gray-200 bg-white text-sm font-medium text-gray-700 cursor-pointer hover:border-gray-400 transition-all has-[:checked]:border-gray-900 has-[:checked]:bg-gray-900 has-[:checked]:text-white">
-              <input type="radio" name="urgency" value="normal" class="hidden" checked /> Normal
+              <input type="radio" name="emergency" value="normal" class="hidden" checked /> Normal
             </label>
             <label class="flex items-center gap-2 px-4 py-2.5 rounded-xl border border-gray-200 bg-white text-sm font-medium text-gray-700 cursor-pointer hover:border-gray-400 transition-all has-[:checked]:border-gray-900 has-[:checked]:bg-gray-900 has-[:checked]:text-white">
-              <input type="radio" name="urgency" value="urgent" class="hidden" /> Urgent
+              <input type="radio" name="emergency" value="urgent" class="hidden" /> Urgent
             </label>
             <label class="flex items-center gap-2 px-4 py-2.5 rounded-xl border border-gray-200 bg-white text-sm font-medium text-gray-700 cursor-pointer hover:border-gray-400 transition-all has-[:checked]:border-gray-900 has-[:checked]:bg-gray-900 has-[:checked]:text-white">
-              <input type="radio" name="urgency" value="flexible" class="hidden" /> Flexible
+              <input type="radio" name="emergency" value="flexible" class="hidden" /> Flexible
             </label>
           </div>
         </div>
@@ -89,8 +93,8 @@
         <button class="btn-validate w-full">
           Envoyer la demande
         </button>
- 
-      </div>
+    </div>
+</form>
     </div>
   </main>
 @endsection
