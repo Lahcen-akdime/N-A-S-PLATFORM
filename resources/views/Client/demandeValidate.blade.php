@@ -49,7 +49,6 @@
           </div>
         </div>
     </div>
-        // ['state','client_id','worker_id','','emergency']
         <div class="w-full border-t border-gray-100"></div>
  
         <!-- Title of request -->

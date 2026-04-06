@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Client;
 use App\Http\Controllers\Controller;
 
 use App\Http\Requests\DemandeRequest;
+use App\Http\Requests\demandeStoreRequest;
 use App\Models\Demande;
 use App\Models\work;
 use App\Models\Worker;
@@ -13,12 +14,12 @@ use Illuminate\Support\Facades\Auth;
 
 class DemandeController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+    
     public function index()
     {
-        return view('client.demandes') ;
+        $user_id = Auth::user()->id ;
+        $demandes = Demande::where('client_id','=',$user_id)->get() ;
+        return view('client.demandes',compact('demandes')) ;
     }
 
     /**
@@ -36,14 +37,14 @@ class DemandeController extends Controller
     public function store(Request $request)
     {
         $user_id = Auth::user()->id ;
-        Demande::credate([
+        Demande::create([
             'title'=>$request->title,
-            'state'=>$request->state,
             'client_id'=>$user_id,
             'worker_id'=>$request->worker_id,
             'description'=>$request->description,
             'emergency'=>$request->emergency,
         ]);
+        return to_route('demande.index');
     }
 
     /**
