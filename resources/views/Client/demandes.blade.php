@@ -30,18 +30,15 @@
     </div>
 
     
-
     <!-- History title -->
     <div class="flex items-center justify-between mb-5 animate-fade-up delay-2">
       <h2 class="text-base font-semibold text-gray-900">Historique des demandes</h2>
       <a href="#" class="text-xs font-medium text-gray-400 hover:text-gray-700 transition-colors">Voir tout →</a>
-    </div>
-
+    </div><br>
     <!-- Demandes list -->
-    <div class="flex flex-col gap-4">
+<div class="flex flex-col gap-4">
     @foreach($demandes as $demande)
-    @if($demande->state != 'rejected')
-      <!-- Demande 1 — Terminée -->
+    @if($demande->state != 'rejected' && $demande->state != 'Canceled')
       <div class="glass-card !flex-row !items-center !text-left !p-5 !rounded-2xl !cursor-default gap-4 animate-fade-up delay-2">
         <!-- Worker avatar -->
         <div class="w-12 h-12 rounded-full bg-gray-200 flex-shrink-0 overflow-hidden flex items-center justify-center">
@@ -69,14 +66,20 @@
           Pending
         </span>
         @endif
-        <button class="flex-shrink-0 text-xs font-semibold px-3 py-1 rounded-full bg-orange-50 text-red-600 border border-orange-800">Reject the demande</button>
+        <form action="{{route('demande.destroy',$demande)}}" method="post">
+          @csrf
+          @method('DELETE')
+          <button type="submit" class="flex-shrink-0 text-xs font-semibold px-3 py-1 rounded-full bg-orange-50 text-red-600 border border-orange-800">Cancel the demande</button>
+        </form>
       </div>
-      @else
-      <div class="flex items-center justify-between mb-5 animate-fade-up delay-2">
-      <h2 class="text-base font-semibold text-gray-900">Rejected demandes</h2>
-    </div>
+      @endif
+      @endforeach
+      <br><div class="flex items-center justify-between mb-5 animate-fade-up delay-2">
+        <h2 class="text-base font-semibold text-gray-900">Canceled & Rejected demandes</h2>
+      </div>
+      @foreach($demandes as $demande)
+      @if($demande->state == 'Rejected' || $demande->state == 'Canceled')
       <div class="glass-card !flex-row !items-center !text-left !p-5 !rounded-2xl !cursor-default gap-4 animate-fade-up delay-2">
-        <!-- Worker avatar -->
         <div class="w-12 h-12 rounded-full bg-gray-200 flex-shrink-0 overflow-hidden flex items-center justify-center">
           <svg width="22" height="22" viewBox="0 0 20 20" fill="none">
             <circle cx="10" cy="7" r="3.5" stroke="#6b7280" stroke-width="1.5"/>
@@ -89,11 +92,18 @@
           <p class="text-xs text-gray-400 mt-0.5">Vers le travailleur : <span class="text-gray-600 font-medium">{{$demande->worker->id}}</span></p>
           <p class="text-xs text-gray-400 mt-0.5">{{$demande->created_at}}</p>
         </div>
-        <span class="flex-shrink-0 text-xs font-semibold px-3 py-1 rounded-full  bg-orange-50 text-red-600 border border-orange-300">
+        @if($demande->state == 'Rejected')
+        <span class="flex-shrink-0 text-xs font-semibold px-3 py-1 rounded-full bg-green-50 text-green-700 border border-green-100">
           Rejected
         </span>
+        @elseif($demande->state == 'Canceled')
+        <span class="flex-shrink-0 text-xs font-semibold px-3 py-1 rounded-full bg-blue-50 text-blue-700 border border-blue-100">
+          Canceled
+        </span>
+        @endif
+      </div>
       @endif
-    @endforeach
-    </div>
+        @endforeach
+</div>
   </main>
 @endsection

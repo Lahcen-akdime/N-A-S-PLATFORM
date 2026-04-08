@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->timestamps();
             $table->string('title');
-            $table->enum('state',['Accepted','Rejected','Pending','done'])->default('Pending');
+            $table->enum('state',['Accepted','Rejected','Pending','done','Canceled'])->default('Pending');
             $table->enum('emergency',['normal','urgent','flexible']);
             $table->integer('worker_id');
             $table->foreignId('client_id');

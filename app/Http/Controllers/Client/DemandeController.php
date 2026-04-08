@@ -77,6 +77,9 @@ class DemandeController extends Controller
      */
     public function destroy(Demande $demande)
     {
-        //
+        $demande->update([
+            'state' => 'Canceled'
+        ]);
+        return to_route('demande.index');
     }
 }
