@@ -18,10 +18,10 @@ Route::get('/', function () {
 Route::controller(LoginController::class)->group(function (){
     Route::get('/shoose','shoose')->name('roleChoices');
     Route::get('/Logout','Logout')->name('Logout');
-    });
+});
 
 Route::resource('client',ClientController::class)->except('index');
-Route::resource('worker',WorkerController::class)->only('create') ;
+Route::resource('worker',WorkerController::class) ; // midleware ???
 Route::resource('login',LoginController::class);
 Route::get('worker/profile/{id}',[WorkerController::class,'show']);
 Route::middleware(login_middleware::class)->group(function () {

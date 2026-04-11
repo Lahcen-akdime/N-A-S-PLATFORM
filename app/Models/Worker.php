@@ -10,6 +10,16 @@ use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class Worker extends Model
 {
+    protected $fillable = [
+        'experience_years',
+        'adress',
+        'user_id',
+        'work_id',
+        'profile_image',
+        'work_id',
+        'latitude',
+        'longitude',
+    ];
     public function user():BelongsTo{
         return $this->belongsTo(User::class);
     }
