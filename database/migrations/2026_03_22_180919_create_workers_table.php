@@ -15,11 +15,10 @@ return new class extends Migration
             $table->id();
             $table->timestamps();
             $table->integer('experience_years');
-            // carte national doc ??
-            // certificats docs ??
             $table->integer('evaluation')->default(0);
             $table->string('adress');
             $table->foreignId('work_id')->constrained();
+            $table->string('profile_image');
             $table->foreignId('user_id')->constrained()->cascadeOnDelete() ;
             $table->string('latitude');
             $table->string('longitude');

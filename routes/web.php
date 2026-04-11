@@ -21,6 +21,7 @@ Route::controller(LoginController::class)->group(function (){
     });
 
 Route::resource('client',ClientController::class)->except('index');
+Route::resource('worker',WorkerController::class)->only('create') ;
 Route::resource('login',LoginController::class);
 Route::get('worker/profile/{id}',[WorkerController::class,'show']);
 Route::middleware(login_middleware::class)->group(function () {
