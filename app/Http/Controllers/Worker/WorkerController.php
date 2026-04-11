@@ -21,7 +21,7 @@ class WorkerController extends Controller
      */
     public function create()
     {
-        //
+        return view('Auth.worker_register') ;
     }
 
     /**

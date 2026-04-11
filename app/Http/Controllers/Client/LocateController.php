@@ -11,7 +11,7 @@ class LocateController extends Controller
 {
     public function index($work,$evaluation)
     {
-        $workers = Worker::with('work')->where('evaluation','<=',$evaluation)
+        $workers = Worker::with('work')->where('evaluation','>=',$evaluation)
                                        ->whereHas('work',function ($query) use ($work){
                                         $query->where('name','=',$work);
                                        })->get();
