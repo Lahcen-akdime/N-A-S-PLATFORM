@@ -7,7 +7,6 @@
         </a>
       </div>
 @endsection
-
   <!-- MAIN -->
 @section('maincontent')
   <main class="flex-1 max-w-6xl mx-auto w-full px-6 py-10 flex flex-col gap-6">

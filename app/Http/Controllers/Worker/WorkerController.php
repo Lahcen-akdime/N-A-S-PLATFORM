@@ -3,8 +3,12 @@
 namespace App\Http\Controllers\Worker;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\workerStoreRequest;
+use App\Models\Document;
 use App\Models\User;
+use App\Models\Work;
 use App\Models\Worker;
+use Illuminate\Database\Events\TransactionBeginning;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -23,48 +27,48 @@ class WorkerController extends Controller
      */
     public function create()
     {
-        return view('Auth.worker_register') ;
+        $step = 0 ;
+        $works = Work::all() ;
+        return view('Auth.worker_register',compact('works','step')) ;
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(workerStoreRequest $request)
     {
-        /*
-        'experience_years',
-        'work_id',
-        'profile_image',
-        'work_id',
-        'latitude',
-        'longitude',
-        */
-        // $user = User::create([
-        //         'name' => $request->name ,
-        //         'email' => $request->email ,
-        //         'password' => $request->password ,
-        //         'role' => 'worker' ,
+        $user = User::create([
+                'name' => $request->name ,
+                'email' => $request->email ,
+                'password' => $request->password ,
+                'role' => 'worker' ,
+        ]);
+
+        $worker = Worker::create([
+                'experience_years'=>$request->experience_years,
+                'work_id'=>$request->work_id,
+                'profile_image'=>$request->profile_image,
+                'work_id'=>'work_id',
+                'phone'=>$request->phone,
+                'latitude'=>'32.255751',
+                'longitude'=>'-8.536694',
+                'adress' => $request->adress ,
+                'user_id'=>$user->id ,
+        ]);
+        
+        // Document::create([
+        // 'type' => $request->type 
+        
         // ]);
-        // $worker = Worker::create([
-        //         'experience_years'=>$request->experience_years,
-        //         'work_id'=>$request->work_id,
-        //         'profile_image'=>$request->profile_image,
-        //         'work_id'=>1,
-        //         'latitude'=>'32.255751',
-        //         'longitude'=>'-8.536694',
-        //         'adress' => $request->adress ,
-        //         'user_id'=>$user->id ,
-        // ]);
+
         // Auth::attempt(['email'=>$request->email,'password'=>$request->password]);
+
         // return response()->json([
         //     'userName'=>$user->name ,
         //     'userEmail'=>$user->email ,
-        //     'worker_latitude'=>$worker->profile_image 
+        //     'worker_latitude'=>$worker->latitude 
         // ],200);
-        // return response()->json([
-        //     'message'=>"welcome" 
-        // ],200);
-        // return to_route('worker.index');
+        return to_route('wait');
     }
 
     /**
@@ -74,7 +78,6 @@ class WorkerController extends Controller
     {
         $worker = Worker::findOrFail($id) ;
         return view('WorkerProfile',compact('worker'));
-        
     }
 
     /**
@@ -99,5 +102,8 @@ class WorkerController extends Controller
     public function destroy(Worker $worker)
     {
         //
+    }
+    public function wait(){
+        return view('Worker.waitVerification');
     }
 }

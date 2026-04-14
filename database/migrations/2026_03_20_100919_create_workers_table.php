@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('workers', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->integer('experience_years');
+            $table->integer('experience_years');    
             $table->integer('evaluation')->default(0);
             $table->string('adress');
             $table->foreignId('work_id')->constrained();
@@ -22,6 +22,7 @@ return new class extends Migration
             $table->foreignId('user_id')->constrained()->cascadeOnDelete() ;
             $table->string('latitude');
             $table->string('longitude');
+            $table->string('phone');
             $table->boolean('is_banned')->default(false);
             $table->boolean('is_accepted')->default(false);
         });

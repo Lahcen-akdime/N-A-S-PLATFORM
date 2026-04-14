@@ -17,6 +17,7 @@ class Worker extends Model
         'work_id',
         'profile_image',
         'work_id',
+        'phone',
         'latitude',
         'longitude',
     ];
