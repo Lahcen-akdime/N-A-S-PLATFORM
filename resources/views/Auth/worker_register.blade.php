@@ -19,7 +19,7 @@
           </div>
         </div>
       </div>
-      <form action="{{route('worker.store')}}" method="POST">
+      <form action="{{route('worker.store')}}" method="POST" enctype="multipart/form-data">
         @csrf
         @method('POST')
       <!-- ── STEP 1 ── -->
@@ -42,6 +42,11 @@
           <div class="flex flex-col gap-1.5 w-full">
             <label class="text-xs font-semibold text-gray-500 uppercase tracking-widest">Numéro de téléphone</label>
             <input name="phone" type="tel" placeholder="+212 6 XX XX XX XX"
+              class="w-full px-4 py-3 rounded-xl border border-gray-200 bg-gray-50 text-sm text-gray-900 placeholder-gray-400 outline-none focus:border-gray-900 focus:bg-white focus:ring-2 focus:ring-gray-900/5 transition-all" />
+          </div>
+          <div class="flex flex-col gap-1.5 w-full">
+            <label class="text-xs font-semibold text-gray-500 uppercase tracking-widest">Adress</label>
+            <input type="text" name="adress" placeholder="Jean Dupont"
               class="w-full px-4 py-3 rounded-xl border border-gray-200 bg-gray-50 text-sm text-gray-900 placeholder-gray-400 outline-none focus:border-gray-900 focus:bg-white focus:ring-2 focus:ring-gray-900/5 transition-all" />
           </div>
         </div>
@@ -73,7 +78,7 @@
               </div>
               <span class="text-sm text-gray-400 font-medium">Cliquez pour uploader une photo</span>
               <span class="text-xs text-gray-300">JPG, PNG — max 5 MB</span>
-              <input type="file" name="profile_image" accept="image/*" class="hidden" />
+              <input type="file" name="profile_image"  />
             </label>
           </div>
 
@@ -130,7 +135,7 @@
               <svg width="16" height="16" viewBox="0 0 20 20" fill="none" class="text-gray-300 flex-shrink-0">
                 <path d="M10 14V6m0 0L7 9m3-3l3 3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
               </svg>
-              <input name="deploma" type="file" accept=".pdf,.jpg,.png" class="hidden" />
+              <input name="deploma" type="file"  />
             </label>
           </div>
           <!-- Certificats -->
@@ -150,7 +155,7 @@
               <svg width="16" height="16" viewBox="0 0 20 20" fill="none" class="text-gray-300 flex-shrink-0">
                 <path d="M10 14V6m0 0L7 9m3-3l3 3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
               </svg>
-              <input name="certificate" type="file" accept=".pdf,.jpg,.png" multiple class="hidden" />
+              <input name="certificate" type="file"  />
             </label>
           </div>
 
@@ -172,7 +177,7 @@
               <svg width="16" height="16" viewBox="0 0 20 20" fill="none" class="text-gray-300 flex-shrink-0">
                 <path d="M10 14V6m0 0L7 9m3-3l3 3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
               </svg>
-              <input name="cin" type="file" accept=".jpg,.png,.pdf" class="hidden" />
+              <input name="national_card" type="file"  />
             </label>
           </div>
           

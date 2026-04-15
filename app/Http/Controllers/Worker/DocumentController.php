@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Worker;
 use App\Http\Controllers\Controller;
 use App\Models\document;
 use Illuminate\Http\Request;
+use Psy\Util\Str;
 
 class DocumentController extends Controller
 {
@@ -13,7 +14,7 @@ class DocumentController extends Controller
      */
     public function index()
     {
-        //
+        
     }
 
     /**
