@@ -1,4 +1,3 @@
-
 <?php $__env->startSection('login_logout_buttons'); ?>
       <!-- CTA -->
       <div class="flex items-center gap-3">

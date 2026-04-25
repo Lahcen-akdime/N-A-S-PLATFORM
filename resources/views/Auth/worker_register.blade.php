@@ -51,7 +51,7 @@
           </div>
         </div>
         <div class="flex flex-col gap-1.5 w-full">
-            <label class="text-xs font-semibold text-gray-500 uppercase tracking-widest">Click here to set your location automaticly or type it manualy</label>
+            <label id="locationIndice" class="text-xs font-semibold text-gray-500 uppercase tracking-widest">Click here to set your location automaticly or type it manualy</label>
             <button id="getCoordsButton" type="button" onclick="getWorkerCoords()" style="border: 1px solid black;border-radius:15px;">Get My coodrs automaticly</button>
             <label class="text-xs font-semibold text-gray-500 uppercase tracking-widest">Latitude</label>
             <input type="text" name="latitude" placeholder="latitude"

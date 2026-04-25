@@ -80,14 +80,11 @@ class WorkerController extends Controller
                 'worker_id' => $worker->id
                 ]);
             }
-
-            Auth::attempt(['email'=>$request->email,'password'=>$request->password]);
             return to_route('wait');
-
             DB::commit();
         } catch (PDOException $e) {
             DB::rollBack();
-                dd('error : '.$e);
+            dd('error : '.$e);
         }
     }
 

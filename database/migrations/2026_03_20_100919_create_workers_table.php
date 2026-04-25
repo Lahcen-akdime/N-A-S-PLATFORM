@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->timestamps();
             $table->integer('experience_years');    
-            $table->integer('evaluation')->default(0);
+            $table->integer('evaluation')->default(1);
             $table->string('adress');
             $table->foreignId('work_id')->constrained();
             $table->string('profile_image');

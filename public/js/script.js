@@ -36,16 +36,14 @@ async function locateCloserWorkers() {
     let evaluation = document.getElementById('evaluation').value ?? 0 ;
 
     
-    if (userLocation) {
-        
         fetch('http://127.0.0.1:8000/api/workers/'+work+'/'+evaluation)
         .then(response => response.json())
         .then(data =>{
             data.Worker.forEach(element => {
                 console.log(element);
                     var workerIcon = L.icon({
-                        iconUrl: '../Ressources/worker.png',
-                        iconSize:     [20, 20], 
+                        iconUrl: '../storage/'+element.profile_image,
+                        iconSize:     [30, 30], 
                         shadowSize:   [50, 64], 
                         popupAnchor:  [0, 0] 
                         });
@@ -58,7 +56,6 @@ async function locateCloserWorkers() {
              return ;
             })
     }
-}
 
 async function getWorkerCoords() {
     let userLocation = await findUser() ;
@@ -67,6 +64,7 @@ async function getWorkerCoords() {
     latitudeInput.value = userLocation.lat ;
     longitudeInput.value = userLocation.long ;
     document.getElementById('getCoordsButton').style.display='none';
+    document.getElementById('locationIndice').style.display='none';
 }
 
 var userLocation = DisplayUserOnMap() ;
