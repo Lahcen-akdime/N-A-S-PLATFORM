@@ -1,7 +1,7 @@
 @extends('Layouts.app')
   <!-- ===== MAIN ===== -->
 @section('maincontent')
-  <main class="flex-1 flex items-center justify-center px-6 py-14 bg-gray-50">
+  <main class="flex-1 flex items-center justify-center px-6 py-14 bg-gray-50" >
     <div class="w-full max-w-xl flex flex-col gap-8">
 
       <!-- Progress bar -->
@@ -49,6 +49,16 @@
             <input type="text" name="adress" placeholder="Jean Dupont"
               class="w-full px-4 py-3 rounded-xl border border-gray-200 bg-gray-50 text-sm text-gray-900 placeholder-gray-400 outline-none focus:border-gray-900 focus:bg-white focus:ring-2 focus:ring-gray-900/5 transition-all" />
           </div>
+        </div>
+        <div class="flex flex-col gap-1.5 w-full">
+            <label class="text-xs font-semibold text-gray-500 uppercase tracking-widest">Click here to set your location automaticly or type it manualy</label>
+            <button id="getCoordsButton" type="button" onclick="getWorkerCoords()" style="border: 1px solid black;border-radius:15px;">Get My coodrs automaticly</button>
+            <label class="text-xs font-semibold text-gray-500 uppercase tracking-widest">Latitude</label>
+            <input type="text" name="latitude" placeholder="latitude"
+            class="w-full px-4 py-3 rounded-xl border border-gray-200 bg-gray-50 text-sm text-gray-900 placeholder-gray-400 outline-none focus:border-gray-900 focus:bg-white focus:ring-2 focus:ring-gray-900/5 transition-all" />
+            <label class="text-xs font-semibold text-gray-500 uppercase tracking-widest">Longitude</label>
+            <input type="text" name="longitude" placeholder="longitude"
+             class="w-full px-4 py-3 rounded-xl border border-gray-200 bg-gray-50 text-sm text-gray-900 placeholder-gray-400 outline-none focus:border-gray-900 focus:bg-white focus:ring-2 focus:ring-gray-900/5 transition-all" />
         </div>
 
         <div class="w-full border-t border-gray-100"></div>
@@ -135,7 +145,7 @@
               <svg width="16" height="16" viewBox="0 0 20 20" fill="none" class="text-gray-300 flex-shrink-0">
                 <path d="M10 14V6m0 0L7 9m3-3l3 3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
               </svg>
-              <input name="deploma" type="file"  />
+              <input name="diploma" type="file"  />
             </label>
           </div>
           <!-- Certificats -->

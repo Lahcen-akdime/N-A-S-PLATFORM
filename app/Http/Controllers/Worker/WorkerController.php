@@ -18,17 +18,13 @@ use PDOException;
 
 class WorkerController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+
     public function index()
     {
         return view('Worker.home') ;
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
+
     public function create()
     {
         $step = 0 ;
@@ -36,9 +32,6 @@ class WorkerController extends Controller
         return view('Auth.worker_register',compact('works','step')) ;
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
         try {
@@ -57,16 +50,16 @@ class WorkerController extends Controller
                     'work_id'=>$request->work_id,
                     'profile_image'=>$path,
                     'phone'=>$request->phone,
-                    'latitude'=>'32.255751',
-                    'longitude'=>'-8.536694',
+                    'latitude'=>$request->latitude,
+                    'longitude'=>$request->longitude,
                     'adress' => $request->adress ,
                     'user_id'=>$user->id ,
             ]);
 
             if($request->deploma){
-                $path = StoreFiles::StoreFileAndGetPath($request->deploma,$user->id,"deploma") ;
+                $path = StoreFiles::StoreFileAndGetPath($request->deploma,$user->id,"diploma") ;
                 Document::create([
-                'type' => 'deploma' ,
+                'type' => 'diploma' ,
                 'file_path' => $path ,
                 'worker_id' => $worker->id 
                 ]);
@@ -89,15 +82,12 @@ class WorkerController extends Controller
             }
 
             Auth::attempt(['email'=>$request->email,'password'=>$request->password]);
-
             return to_route('wait');
 
             DB::commit();
         } catch (PDOException $e) {
             DB::rollBack();
-                return response()->json([
-                'error'=>$e
-                ],500);
+                dd('error : '.$e);
         }
     }
 
@@ -135,9 +125,5 @@ class WorkerController extends Controller
     }
     public function wait(){
         return view('Worker.waitVerification');
-    }
-    public function test(){
-        $test = 'image.png';
-        return explode('.',$test)[1];
     }
 }

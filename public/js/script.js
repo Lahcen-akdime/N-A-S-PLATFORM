@@ -1,4 +1,4 @@
-const map = L.map('map')
+const map = L.map('map') 
 
 async function findUser() {
 const getCoords = async () => {
@@ -16,14 +16,24 @@ const getCoords = async () => {
     return coords;
 }
 let Mymap = document.getElementById('mymap') ;
-console.log(Mymap);
+
+async function DisplayUserOnMap() {
+    let userLocation = await findUser() ;
+    let latitude = userLocation.lat ;
+    let longitude = userLocation.long ;
+
+    map.setView([latitude,longitude], 14);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 19
+    }).addTo(map);
+    L.marker([latitude, longitude]).addTo(map)
+    .openPopup();
+    return userLocation ;
+}
 
 async function locateCloserWorkers() {
     let work = document.getElementById('work').value ;
     let evaluation = document.getElementById('evaluation').value ?? 0 ;
-    let userLocation = await findUser() ;
-    let latitude = userLocation.lat ;
-    let longitude = userLocation.long ;
 
     
     if (userLocation) {
@@ -47,16 +57,18 @@ async function locateCloserWorkers() {
                 });
              return ;
             })
-    map.setView([latitude,longitude], 14);
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        maxZoom: 19
-    }).addTo(map);
-    L.marker([latitude, longitude]).addTo(map)
-    .openPopup();
     }
 }
-locateCloserWorkers() ;
 
+async function getWorkerCoords() {
+    let userLocation = await findUser() ;
+    let latitudeInput = document.getElementsByName('latitude')[0];
+    let longitudeInput = document.getElementsByName('longitude')[0];
+    latitudeInput.value = userLocation.lat ;
+    longitudeInput.value = userLocation.long ;
+    document.getElementById('getCoordsButton').style.display='none';
+}
 
+var userLocation = DisplayUserOnMap() ;
 
 
