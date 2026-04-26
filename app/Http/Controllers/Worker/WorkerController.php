@@ -48,6 +48,7 @@ class WorkerController extends Controller
             $worker = Worker::create([
                     'experience_years'=>$request->experience_years,
                     'work_id'=>$request->work_id,
+                    'ville'=>$request->ville,
                     'profile_image'=>$path,
                     'phone'=>$request->phone,
                     'latitude'=>$request->latitude,

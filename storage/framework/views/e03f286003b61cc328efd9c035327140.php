@@ -1,14 +1,13 @@
-@extends('layouts.app')
-@section('login_logout_buttons')
+<?php $__env->startSection('login_logout_buttons'); ?>
       <!-- CTA -->
       <div class="flex items-center gap-3">
-        <a href="{{route('Logout')}}" class="btn-primary text-sm font-semibold px-4 py-2 rounded-full hidden sm:inline-block">
+        <a href="<?php echo e(route('Logout')); ?>" class="btn-primary text-sm font-semibold px-4 py-2 rounded-full hidden sm:inline-block">
           Logout
         </a>
       </div>
-@endsection
+<?php $__env->stopSection(); ?>
   <!-- ===== MAIN ===== -->
-@section('maincontent')
+<?php $__env->startSection('maincontent'); ?>
   <main class="flex-1 max-w-7xl mx-auto w-full px-6 py-12 flex flex-col gap-10">
  
     <!-- Welcome -->
@@ -33,7 +32,8 @@
         </div>
         <div>
           <p class="text-xs text-gray-400 font-medium">Utilisateurs totaux</p>
-          <p class="text-3xl font-bold text-gray-900 mt-1">{{$usersNumber}}</p>
+          <p class="text-3xl font-bold text-gray-900 mt-1">4 812</p>
+          <p class="text-xs text-green-600 font-medium mt-1">↑ +12% ce mois</p>
         </div>
       </div>
  
@@ -46,7 +46,8 @@
         </div>
         <div>
           <p class="text-xs text-gray-400 font-medium">Travailleurs actifs</p>
-          <p class="text-3xl font-bold text-gray-900 mt-1">{{$workersNumber}}</p>
+          <p class="text-3xl font-bold text-gray-900 mt-1">1 247</p>
+          <p class="text-xs text-green-600 font-medium mt-1">↑ +8% ce mois</p>
         </div>
       </div>
  
@@ -329,4 +330,5 @@
     </div>
  
   </main>
-@endsection
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layouts.app', array_diff_key(get_defined_vars(), ['__data' => 1, '__path' => 1]))->render(); ?><?php /**PATH C:\laragon\www\N-A-S\resources\views/Admin/dashboard.blade.php ENDPATH**/ ?>

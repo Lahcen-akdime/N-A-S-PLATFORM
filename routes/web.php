@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Client\ClientController;
 use App\Http\Controllers\Client\DemandeController ;
@@ -32,3 +33,5 @@ Route::middleware(login_middleware::class)->group(function () {
         Route::get('/home',[ClientController::class,'index']);
     });
 });
+
+Route::resource('Admin',AdminController::class);

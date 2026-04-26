@@ -31,8 +31,8 @@
           </svg>
         </div>
         <div class="flex-1 min-w-0">
-          <h1 class="text-xl font-bold text-gray-900 tracking-tight">{{$worker->user}}</h1>
-          <p class="text-sm text-gray-400 mt-0.5">{{$worker->work->name}} · {{$worker->ville}}</p>
+          <h1 class="text-xl font-bold text-gray-900 tracking-tight">{{$worker->user->name}}</h1>
+          <p class="text-sm text-gray-400 mt-0.5">{{$worker->work->name}} · {{$worker->user->ville}}</p>
           <!-- Evaluation stars -->
           <div class="flex items-center gap-1 mt-2">
             <span class="text-orange-400 text-base leading-none">★★★★</span>

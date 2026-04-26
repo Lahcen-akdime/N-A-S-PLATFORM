@@ -14,7 +14,7 @@ else if($role == 'worker'){
     return view('worker');
 }
 else{
-    return view('admin_space');
+    return to_route('Admin.index');
 }
 }
 }
