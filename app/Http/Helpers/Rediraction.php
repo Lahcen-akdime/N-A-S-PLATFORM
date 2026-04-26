@@ -11,7 +11,10 @@ if($role == 'client'){
     return to_route('client.index');
 }
 else if($role == 'worker'){
-    return view('worker');
+    if(Auth::user()->worker->is_accepted == false){
+          return to_route('wait');
+    }
+    return to_route('worker.index');
 }
 else{
     return to_route('Admin.index');

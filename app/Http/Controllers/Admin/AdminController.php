@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Models\Demande;
 use App\Models\User;
 use App\Models\Worker;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class AdminController 
@@ -14,10 +15,15 @@ class AdminController
      */
     public function index()
     {
+        $currentTime = Carbon::now()->format('H:i');
         $usersNumber = (User::all()->count())-1;
         $workersNumber = Worker::where('is_accepted','=',true)->where('is_banned','=',false)->count();
-        $demandesNumber = Demande::where();
-        return view('Admin.Dashboard',compact('usersNumber','workersNumber'));
+        $pendingWorkersNumber = Worker::where('is_accepted','=',false)->count();
+        $pendingWorkers = Worker::with('documents','user','work')->where('is_accepted','=',false)
+                                                                 ->where('is_banned','=',false)->get();
+        $demandesNumber = Demande::all()->count();
+        return view('Admin.Dashboard',compact('usersNumber','workersNumber','demandesNumber','pendingWorkersNumber',
+                                              'currentTime','pendingWorkers'));
     }
 
     /**
@@ -31,9 +37,10 @@ class AdminController
     /**
      * Display the resource.
      */
-    public function show()
+    public function accept(Worker $worker)
     {
-        //
+        $worker->update(['is_accepted'=>true]);
+        return to_route('Admin.index');
     }
 
     /**

@@ -35,3 +35,4 @@ Route::middleware(login_middleware::class)->group(function () {
 });
 
 Route::resource('Admin',AdminController::class);
+Route::patch('/accept/{worker}',[AdminController::class,'accept'])->name('accept');

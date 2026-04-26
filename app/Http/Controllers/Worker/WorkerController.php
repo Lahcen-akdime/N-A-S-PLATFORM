@@ -81,12 +81,12 @@ class WorkerController extends Controller
                 'worker_id' => $worker->id
                 ]);
             }
-            return to_route('wait');
             DB::commit();
-        } catch (PDOException $e) {
-            DB::rollBack();
-            dd('error : '.$e);
-        }
+            } catch (PDOException $e) {
+                DB::rollBack();
+                dd('error : '.$e);
+                }
+            return to_route('wait');
     }
 
     /**

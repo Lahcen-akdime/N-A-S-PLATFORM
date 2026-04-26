@@ -13,6 +13,7 @@ class Worker extends Model
     protected $fillable = [
         'experience_years',
         'adress',
+        'ville',
         'user_id',
         'work_id',
         'profile_image',
@@ -20,6 +21,7 @@ class Worker extends Model
         'phone',
         'latitude',
         'longitude',
+        'is_accepted',
     ];
     public function user():BelongsTo{
         return $this->belongsTo(User::class);

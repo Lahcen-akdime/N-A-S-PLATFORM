@@ -17,7 +17,7 @@
             <option value="Temara">Temara</option>
             <option value="Safi">Safi</option>
             <option value="El youssufia">El youssufia</option>
-            <option value="El Jadida<">El Jadida</option>
+            <option value="El Jadida">El Jadida</option>
             <option value="Beni Mellal">Béni Mellal</option>
             <option value="Nador">Nador</option>
             <option value="Mohammedia">Mohammédia</option>

@@ -18,7 +18,7 @@
         <h1 class="text-2xl font-bold text-gray-900 tracking-tight">Tableau de bord</h1>
         <p class="text-sm text-gray-500 mt-1">Statistiques globales de la plateforme Sparrow.ai</p>
       </div>
-      <span class="text-xs text-gray-400 font-medium">Mis à jour : aujourd'hui à 09:14</span>
+      <span class="text-xs text-gray-400 font-medium">Mis à jour : aujourd'hui à {{$currentTime}}</span>
     </div>
  
     <!-- KPI Cards row 1 -->
@@ -58,8 +58,7 @@
         </div>
         <div>
           <p class="text-xs text-gray-400 font-medium">Demandes totales</p>
-          <p class="text-3xl font-bold text-gray-900 mt-1">9 634</p>
-          <p class="text-xs text-green-600 font-medium mt-1">↑ +21% ce mois</p>
+          <p class="text-3xl font-bold text-gray-900 mt-1">{{$demandesNumber}}</p>
         </div>
       </div>
  
@@ -72,72 +71,13 @@
         </div>
         <div>
           <p class="text-xs text-gray-400 font-medium">En attente vérif.</p>
-          <p class="text-3xl font-bold text-gray-900 mt-1">38</p>
+          <p class="text-3xl font-bold text-gray-900 mt-1">{{$pendingWorkersNumber}}</p>
           <p class="text-xs text-orange-500 font-medium mt-1">⚠ À traiter</p>
         </div>
       </div>
  
     </div>
  
-    <!-- KPI Cards row 2 -->
-    <div class="grid grid-cols-2 md:grid-cols-4 gap-5 animate-fade-up delay-2">
- 
-      <div class="glass-card !p-6 !rounded-2xl !cursor-default !items-start !text-left gap-3">
-        <div class="w-10 h-10 rounded-xl bg-gray-100 flex items-center justify-center">
-          <svg width="18" height="18" viewBox="0 0 20 20" fill="none">
-            <path d="M10 2l2.5 5H18l-4.5 4 1.5 5.5L10 14l-5 2.5L6.5 11 2 7h5.5L10 2z" stroke="#6b7280" stroke-width="1.4" stroke-linejoin="round"/>
-          </svg>
-        </div>
-        <div>
-          <p class="text-xs text-gray-400 font-medium">Note moyenne</p>
-          <p class="text-3xl font-bold text-gray-900 mt-1">4.3 <span class="text-orange-400 text-xl">★</span></p>
-          <p class="text-xs text-gray-400 font-medium mt-1">Sur 5 000+ avis</p>
-        </div>
-      </div>
- 
-      <div class="glass-card !p-6 !rounded-2xl !cursor-default !items-start !text-left gap-3">
-        <div class="w-10 h-10 rounded-xl bg-gray-100 flex items-center justify-center">
-          <svg width="18" height="18" viewBox="0 0 20 20" fill="none">
-            <path d="M4 15V9a6 6 0 0112 0v6" stroke="#6b7280" stroke-width="1.5" stroke-linecap="round"/>
-            <rect x="2" y="14" width="16" height="4" rx="2" stroke="#6b7280" stroke-width="1.4"/>
-          </svg>
-        </div>
-        <div>
-          <p class="text-xs text-gray-400 font-medium">Demandes terminées</p>
-          <p class="text-3xl font-bold text-gray-900 mt-1">7 891</p>
-          <p class="text-xs text-green-600 font-medium mt-1">82% taux complétion</p>
-        </div>
-      </div>
- 
-      <div class="glass-card !p-6 !rounded-2xl !cursor-default !items-start !text-left gap-3">
-        <div class="w-10 h-10 rounded-xl bg-gray-100 flex items-center justify-center">
-          <svg width="18" height="18" viewBox="0 0 20 20" fill="none">
-            <rect x="2" y="4" width="16" height="12" rx="2" stroke="#6b7280" stroke-width="1.5"/>
-            <path d="M2 7l8 5 8-5" stroke="#6b7280" stroke-width="1.5" stroke-linecap="round"/>
-          </svg>
-        </div>
-        <div>
-          <p class="text-xs text-gray-400 font-medium">Nouveaux inscrits</p>
-          <p class="text-3xl font-bold text-gray-900 mt-1">214</p>
-          <p class="text-xs text-gray-400 font-medium mt-1">Cette semaine</p>
-        </div>
-      </div>
- 
-      <div class="glass-card !p-6 !rounded-2xl !cursor-default !items-start !text-left gap-3">
-        <div class="w-10 h-10 rounded-xl bg-gray-100 flex items-center justify-center">
-          <svg width="18" height="18" viewBox="0 0 20 20" fill="none">
-            <path d="M10 2a6 6 0 016 6c0 4-6 10-6 10S4 12 4 8a6 6 0 016-6z" stroke="#6b7280" stroke-width="1.5"/>
-            <circle cx="10" cy="8" r="2" stroke="#6b7280" stroke-width="1.4"/>
-          </svg>
-        </div>
-        <div>
-          <p class="text-xs text-gray-400 font-medium">Villes couvertes</p>
-          <p class="text-3xl font-bold text-gray-900 mt-1">27</p>
-          <p class="text-xs text-green-600 font-medium mt-1">↑ 3 nouvelles villes</p>
-        </div>
-      </div>
- 
-    </div>
  
     <!-- Bottom section: Recent verifications + Top services -->
     <div class="grid grid-cols-1 md:grid-cols-2 gap-6 animate-fade-up delay-3">
@@ -147,15 +87,15 @@
         <div class="flex items-center justify-between w-full">
           <div>
             <p class="text-xs uppercase tracking-widest font-semibold text-gray-400 mb-0.5">Vérifications récentes</p>
-            <h2 class="text-base font-bold text-gray-900">Bricoleurs en attente</h2>
+            <h2 class="text-base font-bold text-gray-900">Travailleurs en attente</h2>
           </div>
-          <span class="text-xs font-semibold px-3 py-1 rounded-full bg-orange-50 text-orange-600 border border-orange-100">38 en attente</span>
+          <span class="text-xs font-semibold px-3 py-1 rounded-full bg-orange-50 text-orange-600 border border-orange-100">{{$pendingWorkersNumber}} en attente</span>
         </div>
  
         <div class="w-full border-t border-gray-100"></div>
  
         <div class="flex flex-col gap-4 w-full">
- 
+ @foreach($pendingWorkers as $worker)
           <div class="flex items-center gap-4 w-full">
             <div class="w-10 h-10 rounded-full bg-gray-200 flex items-center justify-center flex-shrink-0">
               <svg width="18" height="18" viewBox="0 0 20 20" fill="none">
@@ -164,66 +104,15 @@
               </svg>
             </div>
             <div class="flex-1 min-w-0">
-              <p class="text-sm font-semibold text-gray-900">Karim Benjelloun</p>
-              <p class="text-xs text-gray-400">Plombier · Casablanca · il y a 2h</p>
+              <p class="text-sm font-semibold text-gray-900">{{$worker->user->name}}</p>
+              <p class="text-xs text-gray-400">{{$worker->work->name}} · {{$worker->ville}}</p>
             </div>
             <div class="flex gap-2">
-              <button class="btn-primary text-xs px-3 py-1.5 rounded-full font-semibold">Review</button>
+              <a href="{{route('worker.show',$worker->id)}}" class="btn-primary text-xs px-3 py-1.5 rounded-full font-semibold">Review</a>
               
             </div>
           </div>
- 
-          <div class="flex items-center gap-4 w-full">
-            <div class="w-10 h-10 rounded-full bg-gray-200 flex items-center justify-center flex-shrink-0">
-              <svg width="18" height="18" viewBox="0 0 20 20" fill="none">
-                <circle cx="10" cy="7" r="3.5" stroke="#9ca3af" stroke-width="1.4"/>
-                <path d="M3 17c0-3.866 3.134-7 7-7s7 3.134 7 7" stroke="#9ca3af" stroke-width="1.4" stroke-linecap="round"/>
-              </svg>
-            </div>
-            <div class="flex-1 min-w-0">
-              <p class="text-sm font-semibold text-gray-900">Sara Sariri</p>
-              <p class="text-xs text-gray-400">Peintre · Marrakech · il y a 5h</p>
-            </div>
-            <div class="flex gap-2">
-              <button class="btn-primary text-xs px-3 py-1.5 rounded-full font-semibold">Review</button>
-              
-            </div>
-          </div>
- 
-          <div class="flex items-center gap-4 w-full">
-            <div class="w-10 h-10 rounded-full bg-gray-200 flex items-center justify-center flex-shrink-0">
-              <svg width="18" height="18" viewBox="0 0 20 20" fill="none">
-                <circle cx="10" cy="7" r="3.5" stroke="#9ca3af" stroke-width="1.4"/>
-                <path d="M3 17c0-3.866 3.134-7 7-7s7 3.134 7 7" stroke="#9ca3af" stroke-width="1.4" stroke-linecap="round"/>
-              </svg>
-            </div>
-            <div class="flex-1 min-w-0">
-              <p class="text-sm font-semibold text-gray-900">Omar Tahiri</p>
-              <p class="text-xs text-gray-400">Électricien · Rabat · il y a 7h</p>
-            </div>
-            <div class="flex gap-2">
-              <button class="btn-primary text-xs px-3 py-1.5 rounded-full font-semibold">Review</button>
-              
-            </div>
-          </div>
- 
-          <div class="flex items-center gap-4 w-full">
-            <div class="w-10 h-10 rounded-full bg-gray-200 flex items-center justify-center flex-shrink-0">
-              <svg width="18" height="18" viewBox="0 0 20 20" fill="none">
-                <circle cx="10" cy="7" r="3.5" stroke="#9ca3af" stroke-width="1.4"/>
-                <path d="M3 17c0-3.866 3.134-7 7-7s7 3.134 7 7" stroke="#9ca3af" stroke-width="1.4" stroke-linecap="round"/>
-              </svg>
-            </div>
-            <div class="flex-1 min-w-0">
-              <p class="text-sm font-semibold text-gray-900">Nadia Lahlou</p>
-              <p class="text-xs text-gray-400">Menuisière · Fès · il y a 10h</p>
-            </div>
-            <div class="flex gap-2">
-              <button class="btn-primary text-xs px-3 py-1.5 rounded-full font-semibold">Review</button>
-              
-            </div>
-          </div>
- 
+ @endforeach
         </div>
  
         <div class="w-full border-t border-gray-100"></div>

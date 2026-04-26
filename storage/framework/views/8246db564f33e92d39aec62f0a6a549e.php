@@ -1,4 +1,3 @@
-
   <!-- MAIN -->
 <?php $__env->startSection('maincontent'); ?>
     <main >

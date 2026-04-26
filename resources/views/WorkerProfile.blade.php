@@ -24,8 +24,8 @@
  
       <!-- Avatar + name + badge -->
       <div class="flex items-center gap-8 w-full">
-        <div class="w-28 h-28 rounded-2xl bg-gray-200 flex-shrink-0 flex items-center justify-center">
-          <svg width="52" height="52" viewBox="0 0 20 20" fill="none">
+        <div class="w-28 h-28 rounded-2xl bg-gray-200 flex-shrink-0 flex items-center justify-center" style="background-image: asset('storage/$worker->profile_image')">
+          <svg width="52" height="52" viewBox="0 0 20 20" fill="none" >
             <circle cx="10" cy="7" r="3.5" stroke="#9ca3af" stroke-width="1.5"/>
             <path d="M3 17c0-3.866 3.134-7 7-7s7 3.134 7 7" stroke="#9ca3af" stroke-width="1.5" stroke-linecap="round"/>
           </svg>
@@ -73,7 +73,7 @@
           </div>
           <div>
             <p class="text-xs text-gray-400 font-medium">Téléphone</p>
-            <p class="text-base font-semibold text-gray-900 mt-2">+212 6 12 34 56 78</p>
+            <p class="text-base font-semibold text-gray-900 mt-2">{{$worker->phone}}</p>
           </div>
         </div>
  
@@ -146,19 +146,29 @@
       <!-- Action buttons -->
       <div class="flex flex-col sm:flex-row gap-3 w-full">
         <a href="{{route('demande.show',$worker->id)}}"
-           class="btn-primary flex-1 flex items-center justify-center gap-2 px-6 py-4 rounded-full text-sm font-semibold">
-          <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+        class="btn-primary flex-1 flex items-center justify-center gap-2 px-6 py-4 rounded-full text-sm font-semibold">
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
             <path d="M7 1v12M1 7h12" stroke="white" stroke-width="2" stroke-linecap="round"/>
           </svg>
           Faire une demande
         </a>
         <a href="update-profile.html"
            class="btn-outline flex-1 flex items-center justify-center gap-2 px-6 py-4 rounded-full text-sm font-semibold">
-          <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
-            <path d="M11 2l3 3-8 8H3v-3l8-8z" stroke="#111827" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-          Modifier le profil
-        </a>
+           <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+             <path d="M11 2l3 3-8 8H3v-3l8-8z" stroke="#111827" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            Modifier le profil
+          </a>
+        <form action="{{route('accept',$worker)}}" method="post">
+          @csrf
+          @method('PATCH')
+          <button
+             class="btn-primary flex-1 flex items-center justify-center gap-2 px-6 py-4 rounded-full text-sm font-semibold">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+            </svg>
+            Accepter ✔️
+          </button>
+        </form>
       </div>
  
     </div>
