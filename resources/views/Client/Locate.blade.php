@@ -32,19 +32,6 @@
         </select>
       </div>
 
-      <!-- Évaluation minimum -->
-      <div class="flex flex-col gap-1 min-w-[160px]">
-        <label class="text-xs font-medium text-gray-500">Évaluation minimum</label>
-        <select id="evaluation" class="w-full px-4 py-2.5 rounded-xl border border-gray-200 bg-gray-50 text-sm text-gray-900 outline-none focus:border-gray-900 focus:bg-white focus:ring-2 focus:ring-gray-900/5 transition-all">
-          <option value="0" disabled selected>Toutes les notes</option>
-          <option value="1">⭐ 1 étoile et +</option>
-          <option value="2">⭐⭐ 2 étoiles et +</option>
-          <option value="3">⭐⭐⭐ 3 étoiles et +</option>
-          <option value="4">⭐⭐⭐⭐ 4 étoiles et +</option>
-          <option value="5">⭐⭐⭐⭐⭐ 5 étoiles</option>
-        </select>
-      </div>
-
       <!-- Search button -->
       <button onclick="locateCloserWorkers()" class="btn-primary px-6 py-2.5 rounded-full text-sm font-semibold flex items-center gap-2 self-end">
         <svg width="14" height="14" viewBox="0 0 20 20" fill="none">

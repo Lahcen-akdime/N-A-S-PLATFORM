@@ -13,16 +13,23 @@
 
       <!-- Nav -->
       <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-gray-500">
-        <!-- <a href="#" class="hover:text-gray-900 transition-colors">Solutions</a> -->
+        @if($role == 'visitor')
+        <a href="/" class="hover:text-gray-900 transition-colors">Home</a>
+        @elseif($role != 'visitor' && $role != 'admin')
         <a href="{{route('Dashboard')}}" class="hover:text-gray-900 transition-colors">Home</a>
+        @endif
         @if($role == 'client')
         <a href="{{route('demande.index')}}" class="hover:text-gray-900 transition-colors">Demandes</a>
         <a href="{{route('demande.create')}}" class="hover:text-gray-900 transition-colors">Locate</a>
         @elseif($role == 'worker')
-        <a href="#" class="hover:text-gray-900 transition-colors">Profile</a>
+        <a href="/profile/{{Auth::user()->worker->id}}" class="hover:text-gray-900 transition-colors">Profile</a>
         <a href="{{route('workerDemandes.index')}}" class="hover:text-gray-900 transition-colors">Demandes</a>
         @endif
-        <a href="#" class="hover:text-gray-900 transition-colors">Contact us</a>
+        @if($role == 'admin')
+          <a href="{{route('Admin.index')}}" class="hover:text-gray-900 transition-colors">Home</a>
+          <a href="{{route('work.index')}}" class="hover:text-gray-900 transition-colors">Works</a>
+        @endif
+        <a href="/contact" class="hover:text-gray-900 transition-colors">Contact us</a>
       </nav>
 
       <!-- Login -->

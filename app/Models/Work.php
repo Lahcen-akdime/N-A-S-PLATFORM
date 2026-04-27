@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class Work extends Model
 {
+    protected $fillable = ['name'];
     public function worker():HasMany{
         return $this->hasMany(Worker::class);
     }

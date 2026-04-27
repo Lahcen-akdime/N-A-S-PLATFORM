@@ -33,10 +33,8 @@ async function DisplayUserOnMap() {
 
 async function locateCloserWorkers() {
     let work = document.getElementById('work').value ;
-    let evaluation = document.getElementById('evaluation').value ?? 0 ;
-
     
-        fetch('http://127.0.0.1:8000/api/workers/'+work+'/'+evaluation)
+        fetch('http://127.0.0.1:8000/api/workers/'+work)
         .then(response => response.json())
         .then(data =>{
             data.Worker.forEach(element => {
@@ -50,7 +48,7 @@ async function locateCloserWorkers() {
                         let marker = L.marker([element.latitude, element.longitude], {icon: workerIcon});
                         marker.addTo(map)
                         marker.on('click', function () {
-                            window.location.href = 'http://127.0.0.1:8000/worker/profile/'+element.id ;
+                            window.location.href = 'http://127.0.0.1:8000/profile/'+element.id ;
                         })
                 });
              return ;

@@ -44,7 +44,8 @@ class LoginController
 
     }
     public function shoose(){
-      return view('ShooseRole');
+      $role = 'visitor' ;
+      return view('ShooseRole',compact('role'));
     }
     public function Logout(){
       Auth::logout();

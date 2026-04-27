@@ -11,14 +11,6 @@
 @section('maincontent')
   <main class="flex-1 w-full px-6 py-16 flex flex-col gap-8 max-w-3xl mx-auto">
  
-    <!-- Back -->
-    <a href="locate.html" class="animate-fade-up inline-flex items-center gap-2 text-sm text-gray-400 hover:text-gray-700 transition-colors self-start">
-      <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-        <path d="M9 2L3 7l6 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-      </svg>
-      Retour
-    </a>
- 
     <!-- Profile card -->
     <div class="glass-card !items-start !text-left !cursor-default !rounded-2xl !p-14 gap-12 animate-fade-up delay-1 w-full">
  
@@ -33,12 +25,6 @@
         <div class="flex-1 min-w-0">
           <h1 class="text-xl font-bold text-gray-900 tracking-tight">{{$worker->user->name}}</h1>
           <p class="text-sm text-gray-400 mt-0.5">{{$worker->work->name}} · {{$worker->user->ville}}</p>
-          <!-- Evaluation stars -->
-          <div class="flex items-center gap-1 mt-2">
-            <span class="text-orange-400 text-base leading-none">★★★★</span>
-            <span class="text-gray-300 text-base leading-none">★</span>
-            <span class="text-xs font-semibold text-gray-600 ml-1">4 / 5</span>
-          </div>
         </div>
         <span class="flex-shrink-0 text-xs font-semibold px-3 py-1 rounded-full bg-green-50 text-green-700 border border-green-100 self-start">
           Disponible

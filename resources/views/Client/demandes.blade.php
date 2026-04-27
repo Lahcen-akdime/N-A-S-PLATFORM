@@ -40,14 +40,14 @@
     @foreach($demandes as $demande)
     @if($demande->state != 'rejected' && $demande->state != 'Canceled')
       <div class="glass-card !flex-row !items-center !text-left !p-5 !rounded-2xl !cursor-default gap-4 animate-fade-up delay-2">
-        <!-- Worker avatar -->
+        
         <div class="w-12 h-12 rounded-full bg-gray-200 flex-shrink-0 overflow-hidden flex items-center justify-center">
           <svg width="22" height="22" viewBox="0 0 20 20" fill="none">
             <circle cx="10" cy="7" r="3.5" stroke="#6b7280" stroke-width="1.5"/>
             <path d="M3 17c0-3.866 3.134-7 7-7s7 3.134 7 7" stroke="#6b7280" stroke-width="1.5" stroke-linecap="round"/>
           </svg>
         </div>
-        <!-- Info -->
+        
         <div class="flex-1 min-w-0">
           <p class="text-sm font-semibold text-gray-900">{{$demande->title}}</p>
           <p class="text-xs text-gray-400 mt-0.5">Vers le travailleur : <span class="text-gray-600 font-medium">{{$demande->worker->user->name}} - {{$demande->worker->work->name}}</span></p>
@@ -61,11 +61,11 @@
         <span class="flex-shrink-0 text-xs font-semibold px-3 py-1 rounded-full bg-blue-50 text-blue-700 border border-blue-100">
           Done
         </span>
-        @else
+          @else
         <span class="flex-shrink-0 text-xs font-semibold px-3 py-1 rounded-full bg-orange-50 text-orange-600 border border-orange-100">
           Pending
         </span>
-        @endif
+          @endif
         <form action="{{route('demande.destroy',$demande)}}" method="post">
           @csrf
           @method('DELETE')

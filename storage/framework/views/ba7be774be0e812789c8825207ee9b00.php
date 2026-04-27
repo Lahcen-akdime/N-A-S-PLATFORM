@@ -13,14 +13,21 @@
 
       <!-- Nav -->
       <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-gray-500">
-        <!-- <a href="#" class="hover:text-gray-900 transition-colors">Solutions</a> -->
+        <?php if($role == 'visitor'): ?>
+        <a href="/" class="hover:text-gray-900 transition-colors">Home</a>
+        <?php elseif($role != 'visitor' && $role != 'admin'): ?>
         <a href="<?php echo e(route('Dashboard')); ?>" class="hover:text-gray-900 transition-colors">Home</a>
+        <?php endif; ?>
         <?php if($role == 'client'): ?>
         <a href="<?php echo e(route('demande.index')); ?>" class="hover:text-gray-900 transition-colors">Demandes</a>
         <a href="<?php echo e(route('demande.create')); ?>" class="hover:text-gray-900 transition-colors">Locate</a>
         <?php elseif($role == 'worker'): ?>
-        <a href="#" class="hover:text-gray-900 transition-colors">Profile</a>
+        <a href="/profile/<?php echo e(Auth::user()->worker->id); ?>" class="hover:text-gray-900 transition-colors">Profile</a>
         <a href="<?php echo e(route('workerDemandes.index')); ?>" class="hover:text-gray-900 transition-colors">Demandes</a>
+        <?php endif; ?>
+        <?php if($role == 'admin'): ?>
+          <a href="<?php echo e(route('Admin.index')); ?>" class="hover:text-gray-900 transition-colors">Home</a>
+          <a href="<?php echo e(route('work.index')); ?>" class="hover:text-gray-900 transition-colors">Works</a>
         <?php endif; ?>
         <a href="#" class="hover:text-gray-900 transition-colors">Contact us</a>
       </nav>

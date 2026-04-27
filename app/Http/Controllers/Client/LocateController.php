@@ -9,12 +9,11 @@ use Illuminate\Http\Request;
 
 class LocateController 
 {
-    public function index($work,$evaluation)
+    public function index($work)
     {
-        $workers = Worker::with('work')->where('evaluation','>=',$evaluation)
-                                       ->whereHas('work',function ($query) use ($work){
+        $workers = Worker::with('work')->whereHas('work',function ($query) use ($work){
                                         $query->where('name','=',$work);
-                                       })->get();
+                                        })->get();
         if($workers){
             return response()->json([
                 'Worker' => $workers ,

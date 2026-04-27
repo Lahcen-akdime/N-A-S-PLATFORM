@@ -57,11 +57,13 @@
           Pending
         </span>
         <?php endif; ?>
-        <form action="<?php echo e(route('demande.destroy',$demande)); ?>" method="post">
+        <?php if($demande->state == 'Pending'): ?>
+        <form action="<?php echo e(route('workerDemandes.update',$demande->id)); ?>" method="post">
           <?php echo csrf_field(); ?>
-          <?php echo method_field('DELETE'); ?>
+          <?php echo method_field('PATCH'); ?>
           <button type="submit" class="flex-shrink-0 text-xs font-semibold px-3 py-1 rounded-full bg-orange-50 text-green-600 border border-green-800">Accept the demande</button>
         </form>
+        <?php endif; ?>
       </div>
       <?php endif; ?>
       <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>

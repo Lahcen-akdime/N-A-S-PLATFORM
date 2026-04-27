@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\Admin\WorkController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Client\ClientController;
 use App\Http\Controllers\Client\DemandeController ;
@@ -22,14 +23,17 @@ Route::resource('worker',WorkerController::class);
 Route::resource('client',ClientController::class)->except('index');
  // midleware ???
 Route::resource('login',LoginController::class);
-Route::get('worker/profile/{id}',[WorkerController::class,'show']);
+Route::get('profile/{id}',[WorkerController::class,'show']);
 Route::middleware(login_middleware::class)->group(function () {
     Route::resource('client',ClientController::class)->only('index');
     Route::resource('demande',DemandeController::class);
     Route::name('Dashboard')->group(function (){
-        Route::get('/home',[ClientController::class,'index']);
+    Route::get('/home',[ClientController::class,'index']) ;
     });
 });
-Route::resource('workerDemandes',WorkerDemandeController::class);
+
+Route::resource('workerDemandes',WorkerDemandeController::class) ;
+
 Route::resource('Admin',AdminController::class);
 Route::patch('/accept/{worker}',[AdminController::class,'accept'])->name('accept');
+Route::resource('work',WorkController::class);

@@ -32,23 +32,13 @@ class DemandeController
 
     public function store(Request $request)
     {
-        $user_id = Auth::user()->id ;
-        Demande::create([
-            'title'=>$request->title,
-            'client_id'=>$user_id,
-            'worker_id'=>$request->worker_id,
-            'description'=>$request->description,
-            'emergency'=>$request->emergency,
-        ]);
-        return to_route('demande.index');
+
     }
 
 
     public function show($id)
     {
-        $role = 'worker' ;
-        $worker = Worker::findOrFail($id) ;
-        return view('Client.demandeValidate',compact('worker'));
+
     }
 
 
@@ -60,9 +50,13 @@ class DemandeController
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Demande $demande)
+    public function update($id)
     {
-        //
+        $demande = Demande::find($id);
+        $test = $demande->update([
+            'state' => 'Accepted'
+        ]);
+        return to_route('workerDemandes.index');
     }
 
     /**

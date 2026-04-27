@@ -58,10 +58,13 @@
           Pending
         </span>
         @endif
-        <form action="{{route('workerDemande.update',$demande)}}" method="post">
+        @if($demande->state == 'Pending')
+        <form action="{{route('workerDemandes.update',$demande->id)}}" method="post">
           @csrf
+          @method('PATCH')
           <button type="submit" class="flex-shrink-0 text-xs font-semibold px-3 py-1 rounded-full bg-orange-50 text-green-600 border border-green-800">Accept the demande</button>
         </form>
+        @endif
       </div>
       @endif
       @endforeach
