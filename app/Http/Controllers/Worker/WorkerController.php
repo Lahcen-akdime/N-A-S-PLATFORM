@@ -16,12 +16,13 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str ;
 use PDOException;
 
-class WorkerController extends Controller
+class WorkerController 
 {
 
     public function index()
     {
-        return view('Worker.home') ;
+        $role = Auth::user()->role ;
+        return view('Worker.home',compact('role')) ;
     }
 
 
@@ -85,38 +86,31 @@ class WorkerController extends Controller
             } catch (PDOException $e) {
                 DB::rollBack();
                 dd('error : '.$e);
-                }
-            return to_route('wait');
+            }
+        return to_route('wait');
     }
 
-    /**
-     * Display the specified resource.
-     */
+
     public function show($id)
     {
+        $role = Auth::user()->role ;
         $worker = Worker::findOrFail($id) ;
-        return view('WorkerProfile',compact('worker'));
+        return view('WorkerProfile',compact('worker','role'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
+
     public function edit(Worker $worker)
     {
         //
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
+
     public function update(Request $request, Worker $worker)
     {
         //
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
+
     public function destroy(Worker $worker)
     {
         //

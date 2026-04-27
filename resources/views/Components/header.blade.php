@@ -15,9 +15,13 @@
       <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-gray-500">
         <!-- <a href="#" class="hover:text-gray-900 transition-colors">Solutions</a> -->
         <a href="{{route('Dashboard')}}" class="hover:text-gray-900 transition-colors">Home</a>
-        <a href="#" class="hover:text-gray-900 transition-colors">Profile</a>
+        @if($role == 'client')
         <a href="{{route('demande.index')}}" class="hover:text-gray-900 transition-colors">Demandes</a>
         <a href="{{route('demande.create')}}" class="hover:text-gray-900 transition-colors">Locate</a>
+        @elseif($role == 'worker')
+        <a href="#" class="hover:text-gray-900 transition-colors">Profile</a>
+        <a href="{{route('workerDemandes.index')}}" class="hover:text-gray-900 transition-colors">Demandes</a>
+        @endif
         <a href="#" class="hover:text-gray-900 transition-colors">Contact us</a>
       </nav>
 

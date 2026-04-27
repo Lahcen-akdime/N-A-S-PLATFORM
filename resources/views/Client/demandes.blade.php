@@ -50,7 +50,7 @@
         <!-- Info -->
         <div class="flex-1 min-w-0">
           <p class="text-sm font-semibold text-gray-900">{{$demande->title}}</p>
-          <p class="text-xs text-gray-400 mt-0.5">Vers le travailleur : <span class="text-gray-600 font-medium">{{$demande->worker->id}}</span></p>
+          <p class="text-xs text-gray-400 mt-0.5">Vers le travailleur : <span class="text-gray-600 font-medium">{{$demande->worker->user->name}} - {{$demande->worker->work->name}}</span></p>
           <p class="text-xs text-gray-400 mt-0.5">{{$demande->created_at}}</p>
         </div>
         @if($demande->state == 'Accepted')
@@ -89,7 +89,7 @@
         <!-- Info -->
         <div class="flex-1 min-w-0">
           <p class="text-sm font-semibold text-gray-900">{{$demande->title}}</p>
-          <p class="text-xs text-gray-400 mt-0.5">Vers le travailleur : <span class="text-gray-600 font-medium">{{$demande->worker->id}}</span></p>
+          <p class="text-xs text-gray-400 mt-0.5">Vers le travailleur : <span class="text-gray-600 font-medium">{{$demande->worker->user->name}} - {{$demande->worker->work->name}}</span></p>
           <p class="text-xs text-gray-400 mt-0.5">{{$demande->created_at}}</p>
         </div>
         @if($demande->state == 'Rejected')
@@ -103,7 +103,7 @@
         @endif
       </div>
       @endif
-        @endforeach
+      @endforeach
 </div>
   </main>
 @endsection

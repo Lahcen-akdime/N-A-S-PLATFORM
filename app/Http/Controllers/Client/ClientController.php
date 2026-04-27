@@ -13,15 +13,16 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
-class ClientController extends Controller
+class ClientController 
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
+        $role = Auth::user()->role ;
         $user = User::find(Auth::user()->id)->with('client')->first();
-        return view('client.home',compact('user'));
+        return view('client.home',compact('user','role'));
     }
 
     /**

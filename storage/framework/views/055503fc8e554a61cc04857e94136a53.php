@@ -18,14 +18,6 @@
       <div>
         <p class="text-xs uppercase tracking-widest font-semibold text-gray-400 mb-1">Tableau des demandes</p>
       </div>
-
-      <a href="<?php echo e(route('demande.create')); ?>"
-         class="btn-primary inline-flex items-center gap-2 px-5 py-3 rounded-full text-sm font-semibold self-start sm:self-auto">
-        <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-          <path d="M7 1v12M1 7h12" stroke="white" stroke-width="2" stroke-linecap="round"/>
-        </svg>
-        Nouvelle demande
-      </a>
     </div>
 
     
@@ -49,7 +41,7 @@
         <!-- Info -->
         <div class="flex-1 min-w-0">
           <p class="text-sm font-semibold text-gray-900"><?php echo e($demande->title); ?></p>
-          <p class="text-xs text-gray-400 mt-0.5">Vers le travailleur : <span class="text-gray-600 font-medium"><?php echo e($demande->worker->user->name); ?> - <?php echo e($demande->worker->work->name); ?></span></p>
+          <p class="text-xs text-gray-400 mt-0.5">Vers le travailleur : <span class="text-gray-600 font-medium"><?php echo e($demande->worker->user->name); ?></span></p>
           <p class="text-xs text-gray-400 mt-0.5"><?php echo e($demande->created_at); ?></p>
         </div>
         <?php if($demande->state == 'Accepted'): ?>
@@ -68,7 +60,7 @@
         <form action="<?php echo e(route('demande.destroy',$demande)); ?>" method="post">
           <?php echo csrf_field(); ?>
           <?php echo method_field('DELETE'); ?>
-          <button type="submit" class="flex-shrink-0 text-xs font-semibold px-3 py-1 rounded-full bg-orange-50 text-red-600 border border-orange-800">Cancel the demande</button>
+          <button type="submit" class="flex-shrink-0 text-xs font-semibold px-3 py-1 rounded-full bg-orange-50 text-green-600 border border-green-800">Accept the demande</button>
         </form>
       </div>
       <?php endif; ?>
@@ -88,7 +80,7 @@
         <!-- Info -->
         <div class="flex-1 min-w-0">
           <p class="text-sm font-semibold text-gray-900"><?php echo e($demande->title); ?></p>
-          <p class="text-xs text-gray-400 mt-0.5">Vers le travailleur : <span class="text-gray-600 font-medium"><?php echo e($demande->worker->user->name); ?> - <?php echo e($demande->worker->work->name); ?></span></p>
+          <p class="text-xs text-gray-400 mt-0.5">Vers le travailleur : <span class="text-gray-600 font-medium"><?php echo e($demande->worker->user->name); ?></span></p>
           <p class="text-xs text-gray-400 mt-0.5"><?php echo e($demande->created_at); ?></p>
         </div>
         <?php if($demande->state == 'Rejected'): ?>
@@ -106,4 +98,4 @@
 </div>
   </main>
 <?php $__env->stopSection(); ?>
-<?php echo $__env->make('layouts.app', array_diff_key(get_defined_vars(), ['__data' => 1, '__path' => 1]))->render(); ?><?php /**PATH C:\laragon\www\N-A-S\resources\views/client/demandes.blade.php ENDPATH**/ ?>
+<?php echo $__env->make('layouts.app', array_diff_key(get_defined_vars(), ['__data' => 1, '__path' => 1]))->render(); ?><?php /**PATH C:\laragon\www\N-A-S\resources\views/Worker/demandes.blade.php ENDPATH**/ ?>

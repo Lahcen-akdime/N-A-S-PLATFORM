@@ -13,7 +13,7 @@
 </head>
 <body class="bg-white text-gray-900 antialiased">
   <!-- ===== HEADER ===== -->
-  <x-header/>
+  <x-header :role="$role"/>
   <!-- ===== MAIN ===== -->
   <main>
     @yield('maincontent')

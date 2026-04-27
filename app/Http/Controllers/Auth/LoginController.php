@@ -9,16 +9,18 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class LoginController extends Controller
+class LoginController 
 {
-    public function index(){
-    return view('Auth.login');
+  public function index(){
+    $role = 'visitor' ;
+    return view('Auth.login',compact('role'));
     }
     public function show(){
 
     }
     public function create(){
-      return view('Auth.login');
+      $role = 'visitor' ;
+      return view('Auth.login',compact('role'));
     }
     public function login(){
     

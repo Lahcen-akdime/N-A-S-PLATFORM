@@ -7,6 +7,7 @@ use App\Models\User;
 use App\Models\Worker;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class AdminController 
 {
@@ -15,6 +16,7 @@ class AdminController
      */
     public function index()
     {
+        $role = Auth::user()->role ;
         $currentTime = Carbon::now()->format('H:i');
         $usersNumber = (User::all()->count())-1;
         $workersNumber = Worker::where('is_accepted','=',true)->where('is_banned','=',false)->count();
@@ -23,7 +25,7 @@ class AdminController
                                                                  ->where('is_banned','=',false)->get();
         $demandesNumber = Demande::all()->count();
         return view('Admin.Dashboard',compact('usersNumber','workersNumber','demandesNumber','pendingWorkersNumber',
-                                              'currentTime','pendingWorkers'));
+                                              'currentTime','pendingWorkers','role'));
     }
 
     /**

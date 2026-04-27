@@ -7,7 +7,7 @@ use App\Models\Work;
 use App\Models\Worker;
 use Illuminate\Http\Request;
 
-class LocateController extends Controller
+class LocateController 
 {
     public function index($work,$evaluation)
     {

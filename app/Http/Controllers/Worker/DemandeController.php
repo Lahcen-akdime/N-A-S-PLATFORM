@@ -1,11 +1,9 @@
 <?php
 
-namespace App\Http\Controllers\Client;
+namespace App\Http\Controllers\Worker;
 
 use App\Http\Controllers\Controller;
 
-use App\Http\Requests\DemandeRequest;
-use App\Http\Requests\demandeStoreRequest;
 use App\Models\Demande;
 use App\Models\work;
 use App\Models\Worker;
@@ -17,25 +15,21 @@ class DemandeController
     
     public function index()
     {
-        $role = Auth::user()->role ;
+        $role = 'worker' ;
         $user_id = Auth::user()->id ;
-        $demandes = Demande::where('client_id','=',$user_id)->get() ;
-        return view('client.demandes',compact('demandes','role')) ;
+        $demandes = Auth::user()->worker->demande ;
+        return view('Worker.demandes',compact('demandes','role')) ;
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
+
     public function create()
     {
-        $role = Auth::user()->role ;
+        $role = 'worker' ;
         $works = Work::all() ;
-        return view('client.Locate',compact('works','role')) ;
+        return view('client.Locate',compact('works','role'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
+
     public function store(Request $request)
     {
         $user_id = Auth::user()->id ;
@@ -49,19 +43,15 @@ class DemandeController
         return to_route('demande.index');
     }
 
-    /**
-     * Display the specified resource.
-     */
+
     public function show($id)
     {
-        $role = Auth::user()->role ;
+        $role = 'worker' ;
         $worker = Worker::findOrFail($id) ;
-        return view('Client.demandeValidate',compact('worker','role'));
+        return view('Client.demandeValidate',compact('worker'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
+
     public function edit(Demande $demande)
     {
         //

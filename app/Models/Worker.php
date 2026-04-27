@@ -26,11 +26,14 @@ class Worker extends Model
     public function user():BelongsTo{
         return $this->belongsTo(User::class);
     }
-    function work() : BelongsTo {
+    public function work() : BelongsTo {
         return $this->belongsTo(work::class);
     }
-    function clients() : BelongsToMany {
+    public function clients() : BelongsToMany {
         return $this->belongsToMany(Client::class,'demandes');
+    }
+    public function demande() : HasMany {
+        return $this->hasMany(Demande::class);
     }
     public function documents():HasMany {
         return $this->hasMany(Document::class);

@@ -7,7 +7,7 @@ use App\Models\document;
 use Illuminate\Http\Request;
 use Psy\Util\Str;
 
-class DocumentController extends Controller
+class DocumentController 
 {
     /**
      * Display a listing of the resource.

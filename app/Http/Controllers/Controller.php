@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
-abstract class Controller
+class Controller
 {
-    
+    public function index(){
+    $role = 'visitor' ;
+     return view('Home',compact('role')); 
+    }
 }
