@@ -22,7 +22,7 @@ class demandeStoreRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'title'=>'required|string',
+            'title'=>'required|string|between:3,10',
             'worker_id'=>'required',
             'emergency'=>'required|string',
         ];

@@ -15,7 +15,13 @@
     <?php echo csrf_field(); ?>
     <?php echo method_field("POST"); ?>
       <div class="glass-card animate-fade-up delay-1 !items-stretch !text-left gap-4">
-
+       <?php if($errors->any()): ?>
+        <ul>
+          <?php $__currentLoopData = $errors->all(); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $error): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+          <li style="color:red"><?php echo e($error); ?></li>
+          <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+        </ul>
+        <?php endif; ?>
         <!-- Name -->
         <div class="animate-fade-up delay-1 flex flex-col gap-1 w-full">
           <label class="text-xs font-medium text-gray-500 pl-1">Nom complet</label>

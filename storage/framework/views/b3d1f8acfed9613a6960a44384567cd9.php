@@ -2,7 +2,13 @@
 <?php $__env->startSection('maincontent'); ?>
   <main class="flex-1 flex items-center justify-center px-6 py-14 bg-gray-50" >
     <div class="w-full max-w-xl flex flex-col gap-8">
-
+       <?php if($errors->any()): ?>
+        <ul>
+          <?php $__currentLoopData = $errors->all(); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $error): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+          <li style="color:red"><?php echo e($error); ?></li>
+          <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+        </ul>
+        <?php endif; ?>
       <!-- Progress bar -->
       <div class="animate-fade-up flex flex-col gap-3">
         <div class="flex items-center gap-2">

@@ -30,8 +30,9 @@ class ClientController
      */
     public function create()
     {
+        $role = 'visitor' ;
         $works = work::all() ;
-        return view('Auth.client_register') ;
+        return view('Auth.client_register',compact('role')) ;
     }
 
     /**

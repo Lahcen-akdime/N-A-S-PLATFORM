@@ -11,7 +11,13 @@
 @section('maincontent')
 <!-- MAIN -->
   <main class="flex-1 max-w-6xl mx-auto w-full px-6 py-12 flex flex-col gap-8">
- 
+    @if($errors->any())
+        <ul>
+          @foreach($errors->all() as $error)
+          <li style="color:red">{{$error}}</li>
+          @endforeach
+        </ul>
+    @endif
     <!-- Title + CTA -->
     <div class="animate-fade-up flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
       <div>

@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Facades\Auth;
 
 class workerStoreRequest extends FormRequest
 {
@@ -11,7 +12,7 @@ class workerStoreRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,17 +23,16 @@ class workerStoreRequest extends FormRequest
     public function rules(): array
     {
         return [
-            "name" => 'required|string',
-            "email" => 'required|string',
-            "password" => 'required|string',
+            "name" => 'required|string|between:3,10',
+            "email" => 'required|string|email',
+            "password" => 'required|string|between:6,30',
             'experience_years'=>'integer',
             'work_id'=>'required|integer',
             'profile_image'=>'required|image',
-            'phone'=>'required',
+            'phone'=>'required|between:10,20',
             'latitude'=>'required',
             'longitude'=>'required',
             'adress' => 'required|string' ,
-            'document'=>'required|file',
         ];
     }
 }

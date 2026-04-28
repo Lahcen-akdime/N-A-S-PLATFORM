@@ -20,25 +20,25 @@
   <!-- ===== MAIN ===== -->
 @section('maincontent')
 <!-- MAIN -->
-  <main class="flex-1 max-w-6xl mx-auto w-full px-6 py-16 flex flex-col gap-14">
-        @if(session('message'))
-          <h2 style="color:green ; border:solid 1px green;border-radius:5px;padding:10px;text-align:center">{{session('message')}}</h2>
-        @endif
-    <!-- Title -->
-    <div class="animate-fade-up text-center">
-      <p class="text-xs uppercase tracking-widest font-semibold text-gray-400 mb-3">Support</p>
+<main class="flex-1 max-w-6xl mx-auto w-full px-6 py-16 flex flex-col gap-14">
+  @if(session('message'))
+  <h2 style="color:green ; border:solid 1px green;border-radius:5px;padding:10px;text-align:center">{{session('message')}}</h2>
+  @endif
+  <!-- Title -->
+  <div class="animate-fade-up text-center">
+    <p class="text-xs uppercase tracking-widest font-semibold text-gray-400 mb-3">Support</p>
       <h1 class="text-4xl font-bold text-gray-900 tracking-tight mb-3">Contactez-nous</h1>
       <p class="text-sm text-gray-500 max-w-md mx-auto">Une question, un problème ou une suggestion ? Notre équipe vous répond dans les plus brefs délais.</p>
     </div>
- 
+    
     <!-- Grid: info left + form right -->
     <div class="grid grid-cols-1 md:grid-cols-5 gap-8 animate-fade-up delay-1">
- 
+      
       <!-- Left — contact info -->
       <div class="md:col-span-2 flex flex-col gap-5">
- 
+        
         <div class="glass-card !items-start !text-left !cursor-default !rounded-2xl !p-7 gap-5">
- 
+          
           <div class="flex items-start gap-4">
             <div class="w-10 h-10 rounded-xl bg-gray-100 flex items-center justify-center flex-shrink-0">
               <svg width="18" height="18" viewBox="0 0 20 20" fill="none">
@@ -51,28 +51,28 @@
               <p class="text-sm font-semibold text-gray-900">support@nas.ma</p>
               <p class="text-xs text-gray-400 mt-0.5">Réponse sous 24h</p>
             </div>
-          </div>
- 
-          <div class="w-full border-t border-gray-100"></div>
- 
-          <div class="flex items-start gap-4">
-            <div class="w-10 h-10 rounded-xl bg-gray-100 flex items-center justify-center flex-shrink-0">
-              <svg width="18" height="18" viewBox="0 0 20 20" fill="none">
-                <path d="M3 5a2 2 0 012-2h1.5a1 1 0 01.96.72l.8 2.8a1 1 0 01-.23 1l-1.2 1.2a11 11 0 004.41 4.41l1.2-1.2a1 1 0 011-.23l2.8.8A1 1 0 0117 15.5V17a2 2 0 01-2 2A13 13 0 013 5z" stroke="#6b7280" stroke-width="1.5" stroke-linecap="round"/>
-              </svg>
             </div>
-            <div>
-              <p class="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-1">Téléphone</p>
-              <p class="text-sm font-semibold text-gray-900">+212 7 71 49 27 31</p>
-              <p class="text-xs text-gray-400 mt-0.5">Lun – Ven, 9h – 18h</p>
-            </div>
-          </div>
- 
-          <div class="w-full border-t border-gray-100"></div>
- 
-          <div class="flex items-start gap-4">
-            <div class="w-10 h-10 rounded-xl bg-gray-100 flex items-center justify-center flex-shrink-0">
-              <svg width="18" height="18" viewBox="0 0 20 20" fill="none">
+            
+            <div class="w-full border-t border-gray-100"></div>
+            
+            <div class="flex items-start gap-4">
+              <div class="w-10 h-10 rounded-xl bg-gray-100 flex items-center justify-center flex-shrink-0">
+                <svg width="18" height="18" viewBox="0 0 20 20" fill="none">
+                  <path d="M3 5a2 2 0 012-2h1.5a1 1 0 01.96.72l.8 2.8a1 1 0 01-.23 1l-1.2 1.2a11 11 0 004.41 4.41l1.2-1.2a1 1 0 011-.23l2.8.8A1 1 0 0117 15.5V17a2 2 0 01-2 2A13 13 0 013 5z" stroke="#6b7280" stroke-width="1.5" stroke-linecap="round"/>
+                </svg>
+              </div>
+              <div>
+                <p class="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-1">Téléphone</p>
+                <p class="text-sm font-semibold text-gray-900">+212 7 71 49 27 31</p>
+                <p class="text-xs text-gray-400 mt-0.5">Lun – Ven, 9h – 18h</p>
+              </div>
+              </div>
+              
+              <div class="w-full border-t border-gray-100"></div>
+          
+              <div class="flex items-start gap-4">
+                <div class="w-10 h-10 rounded-xl bg-gray-100 flex items-center justify-center flex-shrink-0">
+                  <svg width="18" height="18" viewBox="0 0 20 20" fill="none">
                 <path d="M10 2a6 6 0 016 6c0 4-6 10-6 10S4 12 4 8a6 6 0 016-6z" stroke="#6b7280" stroke-width="1.5"/>
                 <circle cx="10" cy="8" r="2" stroke="#6b7280" stroke-width="1.4"/>
               </svg>
@@ -83,9 +83,9 @@
               <p class="text-xs text-gray-400 mt-0.5"> Center, Tour Ouest</p>
             </div>
           </div>
- 
+          
         </div>
- 
+        
         <!-- Status -->
         <div class="glass-card !items-start !text-left !cursor-default !rounded-2xl !p-6 gap-3">
           <div class="flex items-center gap-2">
@@ -94,23 +94,30 @@
           </div>
           <p class="text-xs text-gray-400 leading-relaxed">Temps de réponse moyen : <span class="font-semibold text-gray-700">moins de 8 heures</span> en semaine.</p>
         </div>
- 
+        
       </div>
- 
+      
       <!-- Right — form -->
       <div class="md:col-span-3">
-      <form action="{{route('contact.store')}}" method="post">
-        @csrf
-        <div id="form-view" class="glass-card !items-start !text-left !cursor-default !rounded-2xl !p-10 gap-6 w-full">
- 
-          <div>
-            <p class="text-xs uppercase tracking-widest font-semibold text-gray-400 mb-1">Formulaire</p>
-            <h2 class="text-xl font-bold text-gray-900">Envoyez-nous un message</h2>
-          </div>
- 
-          <div class="w-full border-t border-gray-100"></div>
- 
-          <div class="flex flex-col gap-5 w-full">
+        <form action="{{route('contact.store')}}" method="post">
+          @csrf
+          <div id="form-view" class="glass-card !items-start !text-left !cursor-default !rounded-2xl !p-10 gap-6 w-full">
+            
+            <div>
+              <p class="text-xs uppercase tracking-widest font-semibold text-gray-400 mb-1">Formulaire</p>
+              <h2 class="text-xl font-bold text-gray-900">Envoyez-nous un message</h2>
+            </div>
+            
+            <div class="w-full border-t border-gray-100"></div>
+            
+            <div class="flex flex-col gap-5 w-full">
+            @if($errors->any())
+                <ul>
+                  @foreach($errors->all() as $error)
+                  <li style="color:red;border:solid 1px red;border-radius:5px;padding:10px;text-align:center">{{$error}}</li>
+                  @endforeach
+                </ul>
+            @endif
             @if($role == 'visitor')
             <x-Forms.credantials/>
             @endif

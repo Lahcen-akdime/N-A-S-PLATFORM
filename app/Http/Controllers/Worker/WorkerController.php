@@ -28,12 +28,13 @@ class WorkerController
 
     public function create()
     {
+        $role = 'visitor' ;
         $step = 0 ;
         $works = Work::all() ;
-        return view('Auth.worker_register',compact('works','step')) ;
+        return view('Auth.worker_register',compact('works','step','role')) ;
     }
 
-    public function store(Request $request)
+    public function store(workerStoreRequest $request)
     {
         try {
             DB::beginTransaction();
@@ -116,6 +117,7 @@ class WorkerController
         //
     }
     public function wait(){
-        return view('Worker.waitVerification');
+        $role = 'visitor' ;
+        return view('Worker.waitVerification',compact('wait'));
     }
 }
