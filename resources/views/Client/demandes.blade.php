@@ -20,7 +20,7 @@
         <p class="text-xs uppercase tracking-widest font-semibold text-gray-400 mb-1">Tableau des demandes</p>
       </div>
 
-      <a href="{{route('demande.create')}}"
+      <a href="{{route('locate.create')}}"
          class="btn-primary inline-flex items-center gap-2 px-5 py-3 rounded-full text-sm font-semibold self-start sm:self-auto">
         <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
           <path d="M7 1v12M1 7h12" stroke="white" stroke-width="2" stroke-linecap="round"/>

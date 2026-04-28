@@ -28,15 +28,13 @@ class DemandeController
      */
     public function create()
     {
-        $role = Auth::user()->role ;
-        $works = Work::all() ;
-        return view('client.Locate',compact('works','role')) ;
+       
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(demandeStoreRequest $request)
     {
         $user_id = Auth::user()->id ;
         Demande::create([

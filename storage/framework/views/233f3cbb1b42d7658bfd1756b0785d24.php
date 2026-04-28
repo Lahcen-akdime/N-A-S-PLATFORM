@@ -19,7 +19,7 @@
         <p class="text-xs uppercase tracking-widest font-semibold text-gray-400 mb-1">Tableau des demandes</p>
       </div>
 
-      <a href="<?php echo e(route('demande.create')); ?>"
+      <a href="<?php echo e(route('locate.create')); ?>"
          class="btn-primary inline-flex items-center gap-2 px-5 py-3 rounded-full text-sm font-semibold self-start sm:self-auto">
         <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
           <path d="M7 1v12M1 7h12" stroke="white" stroke-width="2" stroke-linecap="round"/>
@@ -39,14 +39,14 @@
     <?php $__currentLoopData = $demandes; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $demande): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
     <?php if($demande->state != 'rejected' && $demande->state != 'Canceled'): ?>
       <div class="glass-card !flex-row !items-center !text-left !p-5 !rounded-2xl !cursor-default gap-4 animate-fade-up delay-2">
-        <!-- Worker avatar -->
+        
         <div class="w-12 h-12 rounded-full bg-gray-200 flex-shrink-0 overflow-hidden flex items-center justify-center">
           <svg width="22" height="22" viewBox="0 0 20 20" fill="none">
             <circle cx="10" cy="7" r="3.5" stroke="#6b7280" stroke-width="1.5"/>
             <path d="M3 17c0-3.866 3.134-7 7-7s7 3.134 7 7" stroke="#6b7280" stroke-width="1.5" stroke-linecap="round"/>
           </svg>
         </div>
-        <!-- Info -->
+        
         <div class="flex-1 min-w-0">
           <p class="text-sm font-semibold text-gray-900"><?php echo e($demande->title); ?></p>
           <p class="text-xs text-gray-400 mt-0.5">Vers le travailleur : <span class="text-gray-600 font-medium"><?php echo e($demande->worker->user->name); ?> - <?php echo e($demande->worker->work->name); ?></span></p>
@@ -60,11 +60,11 @@
         <span class="flex-shrink-0 text-xs font-semibold px-3 py-1 rounded-full bg-blue-50 text-blue-700 border border-blue-100">
           Done
         </span>
-        <?php else: ?>
+          <?php else: ?>
         <span class="flex-shrink-0 text-xs font-semibold px-3 py-1 rounded-full bg-orange-50 text-orange-600 border border-orange-100">
           Pending
         </span>
-        <?php endif; ?>
+          <?php endif; ?>
         <form action="<?php echo e(route('demande.destroy',$demande)); ?>" method="post">
           <?php echo csrf_field(); ?>
           <?php echo method_field('DELETE'); ?>

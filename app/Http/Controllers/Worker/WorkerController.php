@@ -118,6 +118,6 @@ class WorkerController
     }
     public function wait(){
         $role = 'visitor' ;
-        return view('Worker.waitVerification',compact('wait'));
+        return view('Worker.waitVerification',compact('role'));
     }
 }

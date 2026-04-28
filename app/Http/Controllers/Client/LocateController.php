@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Work;
 use App\Models\Worker;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class LocateController 
 {
@@ -24,6 +25,11 @@ class LocateController
                 'error' => 'workers not found' ,
             ],500) ; 
         }
+    }
+    public function create() {
+         $role = Auth::user()->role ;
+        $works = Work::all() ;
+        return view('client.Locate',compact('works','role')) ;
     }
 
 }

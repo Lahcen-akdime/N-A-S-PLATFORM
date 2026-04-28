@@ -24,7 +24,13 @@
         <h1 class="text-3xl font-bold text-gray-900 tracking-tight">Décrivez votre besoin</h1>
         <p class="text-sm text-gray-500 mt-2">Donnez le maximum de détails pour que le bricoleur comprenne votre demande.</p>
       </div>
- 
+     <?php if($errors->any()): ?>
+        <ul>
+          <?php $__currentLoopData = $errors->all(); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $error): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+          <li style="color:red"><?php echo e($error); ?></li>
+          <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+        </ul>
+      <?php endif; ?>
       <!-- Form card -->
     <form action="<?php echo e(route('demande.store')); ?>" method="POST">
         <?php echo csrf_field(); ?>

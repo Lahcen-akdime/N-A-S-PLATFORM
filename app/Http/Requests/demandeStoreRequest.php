@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Facades\Auth;
 
 class demandeStoreRequest extends FormRequest
 {
@@ -11,6 +12,9 @@ class demandeStoreRequest extends FormRequest
      */
     public function authorize(): bool
     {
+        if (Auth::user()) {
+            return true;
+        }
         return false;
     }
 
@@ -22,7 +26,7 @@ class demandeStoreRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'title'=>'required|string|between:3,10',
+            'title'=>'required|string|between:3,20',
             'worker_id'=>'required',
             'emergency'=>'required|string',
         ];
