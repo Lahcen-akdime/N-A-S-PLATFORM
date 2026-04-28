@@ -37,3 +37,4 @@ Route::resource('workerDemandes',WorkerDemandeController::class) ;
 Route::resource('Admin',AdminController::class);
 Route::patch('/accept/{worker}',[AdminController::class,'accept'])->name('accept');
 Route::resource('work',WorkController::class);
+Route::get('/contact',[Controller::class,'contact']);

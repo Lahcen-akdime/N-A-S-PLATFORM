@@ -77,8 +77,6 @@
       </div>
  
     </div>
- 
- 
     <!-- Bottom section: Recent verifications + Top services -->
     <div class="grid grid-cols-1 md:grid-cols-2 gap-6 animate-fade-up delay-3">
  
@@ -109,7 +107,6 @@
             </div>
             <div class="flex gap-2">
               <a href="{{route('worker.show',$worker->id)}}" class="btn-primary text-xs px-3 py-1.5 rounded-full font-semibold">Review</a>
-              
             </div>
           </div>
  @endforeach
@@ -118,7 +115,6 @@
         <div class="w-full border-t border-gray-100"></div>
         <a href="#" class="text-xs font-semibold text-gray-400 hover:text-gray-700 transition-colors">Voir toutes les demandes →</a>
       </div>
- 
       <!-- Top services + city stats -->
       <div class="flex flex-col gap-6">
  
@@ -178,42 +174,6 @@
  
           </div>
         </div>
- 
-        <!-- Top cities -->
-        <div class="glass-card !items-start !text-left !cursor-default !rounded-2xl !p-8 gap-5">
-          <div>
-            <p class="text-xs uppercase tracking-widest font-semibold text-gray-400 mb-0.5">Géographie</p>
-            <h2 class="text-base font-bold text-gray-900">Top villes actives</h2>
-          </div>
-          <div class="w-full border-t border-gray-100"></div>
-          <div class="grid grid-cols-3 gap-3 w-full">
-            <div class="flex flex-col items-center justify-center p-3 rounded-xl bg-gray-50 border border-gray-100 gap-1">
-              <p class="text-base font-bold text-gray-900">1 840</p>
-              <p class="text-xs text-gray-400 text-center">Casablanca</p>
-            </div>
-            <div class="flex flex-col items-center justify-center p-3 rounded-xl bg-gray-50 border border-gray-100 gap-1">
-              <p class="text-base font-bold text-gray-900">934</p>
-              <p class="text-xs text-gray-400 text-center">Rabat</p>
-            </div>
-            <div class="flex flex-col items-center justify-center p-3 rounded-xl bg-gray-50 border border-gray-100 gap-1">
-              <p class="text-base font-bold text-gray-900">712</p>
-              <p class="text-xs text-gray-400 text-center">Marrakech</p>
-            </div>
-            <div class="flex flex-col items-center justify-center p-3 rounded-xl bg-gray-50 border border-gray-100 gap-1">
-              <p class="text-base font-bold text-gray-900">523</p>
-              <p class="text-xs text-gray-400 text-center">Fès</p>
-            </div>
-            <div class="flex flex-col items-center justify-center p-3 rounded-xl bg-gray-50 border border-gray-100 gap-1">
-              <p class="text-base font-bold text-gray-900">418</p>
-              <p class="text-xs text-gray-400 text-center">Tanger</p>
-            </div>
-            <div class="flex flex-col items-center justify-center p-3 rounded-xl bg-gray-50 border border-gray-100 gap-1">
-              <p class="text-base font-bold text-gray-900">389</p>
-              <p class="text-xs text-gray-400 text-center">Agadir</p>
-            </div>
-          </div>
-        </div>
- 
       </div>
     </div>
  
