@@ -15,11 +15,7 @@
  
       <!-- Avatar + name + badge -->
       <div class="flex items-center gap-8 w-full">
-        <div class="w-28 h-28 rounded-2xl bg-gray-200 flex-shrink-0 flex items-center justify-center" style="background-image: asset('storage/$worker->profile_image')">
-          <svg width="52" height="52" viewBox="0 0 20 20" fill="none" >
-            <circle cx="10" cy="7" r="3.5" stroke="#9ca3af" stroke-width="1.5"/>
-            <path d="M3 17c0-3.866 3.134-7 7-7s7 3.134 7 7" stroke="#9ca3af" stroke-width="1.5" stroke-linecap="round"/>
-          </svg>
+        <div class="w-28 h-28 rounded-2xl bg-gray-200 flex-shrink-0 flex items-center justify-center" style="background-image: url(<?php echo e($imageUrl); ?>);background-size:contain;">
         </div>
         <div class="flex-1 min-w-0">
           <h1 class="text-xl font-bold text-gray-900 tracking-tight"><?php echo e($worker->user->name); ?></h1>
@@ -130,6 +126,7 @@
  
       <!-- Action buttons -->
       <div class="flex flex-col sm:flex-row gap-3 w-full">
+      <?php if($role == 'client'): ?>
         <a href="<?php echo e(route('demande.show',$worker->id)); ?>"
         class="btn-primary flex-1 flex items-center justify-center gap-2 px-6 py-4 rounded-full text-sm font-semibold">
         <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
@@ -137,6 +134,7 @@
           </svg>
           Faire une demande
         </a>
+      <?php elseif($role == 'worker'): ?>
         <a href="update-profile.html"
            class="btn-outline flex-1 flex items-center justify-center gap-2 px-6 py-4 rounded-full text-sm font-semibold">
            <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
@@ -144,6 +142,7 @@
             </svg>
             Modifier le profil
           </a>
+        <?php elseif($role == 'admin'): ?>
         <form action="<?php echo e(route('accept',$worker)); ?>" method="post">
           <?php echo csrf_field(); ?>
           <?php echo method_field('PATCH'); ?>
@@ -154,6 +153,7 @@
             Accepter ✔️
           </button>
         </form>
+        <?php endif; ?>
       </div>
  
     </div>

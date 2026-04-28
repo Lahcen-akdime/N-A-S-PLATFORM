@@ -96,7 +96,8 @@ class WorkerController
     {
         $role = Auth::user()->role ;
         $worker = Worker::findOrFail($id) ;
-        return view('WorkerProfile',compact('worker','role'));
+        $imageUrl = asset('storage/' . $worker->profile_image);
+        return view('WorkerProfile',compact('worker','role','imageUrl'));
     }
 
 

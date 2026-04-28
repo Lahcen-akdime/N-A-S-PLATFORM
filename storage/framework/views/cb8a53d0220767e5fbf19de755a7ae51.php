@@ -1,4 +1,3 @@
-
 <?php $__env->startSection('login_logout_buttons'); ?>
       <!-- CTA -->
       <div class="flex items-center gap-3">
@@ -11,7 +10,13 @@
 <?php $__env->startSection('maincontent'); ?>
 <!-- MAIN -->
   <main class="flex-1 max-w-6xl mx-auto w-full px-6 py-12 flex flex-col gap-8">
- 
+    <?php if($errors->any()): ?>
+        <ul>
+          <?php $__currentLoopData = $errors->all(); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $error): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+          <li style="color:red"><?php echo e($error); ?></li>
+          <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+        </ul>
+    <?php endif; ?>
     <!-- Title + CTA -->
     <div class="animate-fade-up flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
       <div>

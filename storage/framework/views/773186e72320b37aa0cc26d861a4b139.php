@@ -114,66 +114,7 @@
         <div class="w-full border-t border-gray-100"></div>
         <a href="#" class="text-xs font-semibold text-gray-400 hover:text-gray-700 transition-colors">Voir toutes les demandes →</a>
       </div>
-      <!-- Top services + city stats -->
-      <div class="flex flex-col gap-6">
- 
-        <!-- Top services -->
-        <div class="glass-card !items-start !text-left !cursor-default !rounded-2xl !p-8 gap-5">
-          <div>
-            <p class="text-xs uppercase tracking-widest font-semibold text-gray-400 mb-0.5">Popularité</p>
-            <h2 class="text-base font-bold text-gray-900">Services les plus demandés</h2>
-          </div>
-          <div class="w-full border-t border-gray-100"></div>
-          <div class="flex flex-col gap-4 w-full">
- 
-            <div class="flex items-center gap-3 w-full">
-              <span class="text-xs font-bold text-gray-400 w-4">1</span>
-              <p class="text-sm font-medium text-gray-800 flex-1">Plomberie</p>
-              <div class="flex-1 h-2 bg-gray-100 rounded-full overflow-hidden">
-                <div class="h-full bg-gray-900 rounded-full" style="width: 82%"></div>
-              </div>
-              <span class="text-xs font-semibold text-gray-500 w-8 text-right">82%</span>
-            </div>
- 
-            <div class="flex items-center gap-3 w-full">
-              <span class="text-xs font-bold text-gray-400 w-4">2</span>
-              <p class="text-sm font-medium text-gray-800 flex-1">Électricité</p>
-              <div class="flex-1 h-2 bg-gray-100 rounded-full overflow-hidden">
-                <div class="h-full bg-gray-900 rounded-full" style="width: 71%"></div>
-              </div>
-              <span class="text-xs font-semibold text-gray-500 w-8 text-right">71%</span>
-            </div>
- 
-            <div class="flex items-center gap-3 w-full">
-              <span class="text-xs font-bold text-gray-400 w-4">3</span>
-              <p class="text-sm font-medium text-gray-800 flex-1">Peinture</p>
-              <div class="flex-1 h-2 bg-gray-100 rounded-full overflow-hidden">
-                <div class="h-full bg-gray-900 rounded-full" style="width: 55%"></div>
-              </div>
-              <span class="text-xs font-semibold text-gray-500 w-8 text-right">55%</span>
-            </div>
- 
-            <div class="flex items-center gap-3 w-full">
-              <span class="text-xs font-bold text-gray-400 w-4">4</span>
-              <p class="text-sm font-medium text-gray-800 flex-1">Menuiserie</p>
-              <div class="flex-1 h-2 bg-gray-100 rounded-full overflow-hidden">
-                <div class="h-full bg-gray-900 rounded-full" style="width: 38%"></div>
-              </div>
-              <span class="text-xs font-semibold text-gray-500 w-8 text-right">38%</span>
-            </div>
- 
-            <div class="flex items-center gap-3 w-full">
-              <span class="text-xs font-bold text-gray-400 w-4">5</span>
-              <p class="text-sm font-medium text-gray-800 flex-1">Carrelage</p>
-              <div class="flex-1 h-2 bg-gray-100 rounded-full overflow-hidden">
-                <div class="h-full bg-gray-900 rounded-full" style="width: 24%"></div>
-              </div>
-              <span class="text-xs font-semibold text-gray-500 w-8 text-right">24%</span>
-            </div>
- 
-          </div>
-        </div>
-      </div>
+      
     </div>
  
   </main>
