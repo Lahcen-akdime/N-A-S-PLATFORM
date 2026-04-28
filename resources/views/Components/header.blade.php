@@ -29,7 +29,7 @@
           <a href="{{route('Admin.index')}}" class="hover:text-gray-900 transition-colors">Home</a>
           <a href="{{route('work.index')}}" class="hover:text-gray-900 transition-colors">Works</a>
         @endif
-        <a href="/contact" class="hover:text-gray-900 transition-colors">Contact us</a>
+        <a href="{{route('contact.create')}}" class="hover:text-gray-900 transition-colors">Contact us</a>
       </nav>
 
       <!-- Login -->

@@ -52,54 +52,56 @@
             <span class="col-span-2 text-sm font-semibold text-gray-700">{{$work->worker()->count()}}</span>
             <span></span>
           <div class="col-span-2 flex items-center justify-end gap-2">
-            <button onclick="updateModal()" class="w-8 h-8 rounded-xl border border-gray-200 bg-white flex items-center justify-center hover:border-gray-400 transition-all">
+            <button onclick="updateModal(this.dataset.work)" data-work="{{$work}}" class="w-8 h-8 rounded-xl border border-gray-200 bg-white flex items-center justify-center hover:border-gray-400 transition-all">
               <svg width="13" height="13" viewBox="0 0 16 16" fill="none"><path d="M11 2l3 3-8 8H3v-3l8-8z" stroke="#6b7280" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </button>
           </div>
         </div>
-<form action="{{route('work.update',$work)}}" method="post">
-    @csrf 
-    @method('PUT')
-    <div id="updateModal" class="hidden fixed inset-0 z-50 flex items-center justify-center px-4">
-    <div class="absolute inset-0 bg-black/30 backdrop-blur-sm" onclick="closeModal2()"></div>
-    <div class="glass-card relative !rounded-2xl !p-10 !cursor-default !items-start !text-left gap-6 w-full max-w-md z-10 animate-fade-up">
- 
-      <div class="flex items-center justify-between w-full">
-        <div>
-          <p class="text-xs uppercase tracking-widest font-semibold text-gray-400 mb-1">Nouveau</p>
-          <h2 class="text-xl font-bold text-gray-900">Ajouter un métier</h2>
-        </div>
-        <button onclick="closeModal2()" class="w-8 h-8 rounded-xl border border-gray-200 bg-white flex items-center justify-center hover:border-gray-400 transition-all">
-          <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
-            <path d="M1 1l10 10M11 1L1 11" stroke="#6b7280" stroke-width="1.6" stroke-linecap="round"/>
-          </svg>
-        </button>
-      </div>
- 
-      <div class="w-full border-t border-gray-100"></div>
- 
-      <div class="flex flex-col gap-5 w-full">
-        <div class="flex flex-col gap-1.5 w-full">
-          <label class="text-xs font-semibold text-gray-500 uppercase tracking-widest">Nom du métier</label>
-          <input type="text" placeholder="Ex : Jardinage" name="name" value="{{$work->name}}"
-            class="w-full px-4 py-3 rounded-xl border border-gray-200 bg-gray-50 text-sm text-gray-900 placeholder-gray-400 outline-none focus:border-gray-900 focus:bg-white focus:ring-2 focus:ring-gray-900/5 transition-all" />
-        </div>  
-      </div>
- 
-      <div class="w-full border-t border-gray-100"></div>
- 
-      <div class="flex gap-3 w-full">
-        <button onclick="closeModal2()" class="btn-outline flex-1 px-5 py-3 rounded-full text-sm font-semibold">Annuler</button>
-        <button class="btn-validate flex-1">Enregistrer</button>
-      </div>
- 
-    </div>
-  </div>
-</form>
         @endforeach
+      </div>
     </div>
-</div>
   </main>
+  <!-- update modal -->
+  <form id="updateform" action="{{route('work.update',' ')}}" method="post">
+      @csrf 
+      @method('PUT')
+      <div id="updateModal" class="hidden fixed inset-0 z-50 flex items-center justify-center px-4">
+      <div class="absolute inset-0 bg-black/30 backdrop-blur-sm" onclick="closeModal2()"></div>
+      <div class="glass-card relative !rounded-2xl !p-10 !cursor-default !items-start !text-left gap-6 w-full max-w-md z-10 animate-fade-up">
+   
+        <div class="flex items-center justify-between w-full">
+          <div>
+            <p class="text-xs uppercase tracking-widest font-semibold text-gray-400 mb-1">Nouveau</p>
+            <h2 class="text-xl font-bold text-gray-900">Ajouter un métier</h2>
+          </div>
+          <input id="workid" name="workid" hidden >
+          <button type="reset" onclick="closeModal2()" class="w-8 h-8 rounded-xl border border-gray-200 bg-white flex items-center justify-center hover:border-gray-400 transition-all">
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+              <path d="M1 1l10 10M11 1L1 11" stroke="#6b7280" stroke-width="1.6" stroke-linecap="round"/>
+            </svg>
+          </button>
+        </div>
+   
+        <div class="w-full border-t border-gray-100"></div>
+   
+        <div class="flex flex-col gap-5 w-full">
+          <div class="flex flex-col gap-1.5 w-full">
+            <label class="text-xs font-semibold text-gray-500 uppercase tracking-widest">Nom du métier</label>
+            <input type="text" placeholder="Ex : Jardinage" id="inputname" name="name" 
+              class="w-full px-4 py-3 rounded-xl border border-gray-200 bg-gray-50 text-sm text-gray-900 placeholder-gray-400 outline-none focus:border-gray-900 focus:bg-white focus:ring-2 focus:ring-gray-900/5 transition-all" />
+          </div>  
+        </div>
+   
+        <div class="w-full border-t border-gray-100"></div>
+   
+        <div class="flex gap-3 w-full">
+          <button type="reset" onclick="closeModal2()" class="btn-outline flex-1 px-5 py-3 rounded-full text-sm font-semibold">Annuler</button>
+          <button class="btn-validate flex-1">Enregistrer</button>
+        </div>
+   
+      </div>
+    </div>
+  </form>
   <!-- ADD MODAL -->
    <form action="{{route('work.store')}}" method="post">
     @csrf 
@@ -142,9 +144,19 @@
   
  
   <script>
+    
+    
     function openModal()  { document.getElementById('modal').classList.remove('hidden'); }
     function closeModal() { document.getElementById('modal').classList.add('hidden'); }
-    function updateModal()  { document.getElementById('updateModal').classList.remove('hidden'); }
+    function updateModal(work)  {
+      let resault = JSON.parse(work);
+      let form = document.getElementById('updateform');
+      let input = document.getElementById('workid') ;
+      let inputname = document.getElementById('inputname') ;
+      input.value = resault.id
+      inputname.value = resault.name
+      document.getElementById('updateModal').classList.remove('hidden');
+   }
     function closeModal2() { document.getElementById('updateModal').classList.add('hidden'); }
   </script>
 @endsection

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Contact;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ContactController extends Controller
 {
@@ -20,7 +21,8 @@ class ContactController extends Controller
      */
     public function create()
     {
-        //
+        $role = Auth::user()->role ?? 'visitor' ;
+        return view('Contact',compact('role'));
     }
 
     /**
@@ -28,7 +30,18 @@ class ContactController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $is_authaunticated = false ;
+        if(Auth::user()){
+        $is_authaunticated = true ;
+        }
+        Contact::create([
+        'name' => Auth::user()->name ?? $request->name ,
+        'email' => Auth::user()->email ?? $request->email ,
+        'subject' => $request->subject ,
+        'message' => $request->message ,
+        'is_authaunticated' => $is_authaunticated 
+        ]);
+        return to_route('contact.create')->with('message','We recive your message seccussfuly !');
     }
 
     /**

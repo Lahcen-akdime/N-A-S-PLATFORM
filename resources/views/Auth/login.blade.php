@@ -3,7 +3,13 @@
 @section('maincontent')
     <main class="flex-1 flex items-center justify-center px-6 py-16 bg-gray-50">
     <div class="w-full max-w-md">
-
+       @if($errors->any())
+        <ul>
+          @foreach($errors->all() as $error)
+          <li style="color:red">{{$error}}</li>
+          @endforeach
+        </ul>
+        @endif
       <!-- Title -->
       <div class="text-center mb-8 animate-fade-up">
         <p class="text-xs uppercase tracking-widest font-semibold text-gray-400 mb-3">Bienvune</p>

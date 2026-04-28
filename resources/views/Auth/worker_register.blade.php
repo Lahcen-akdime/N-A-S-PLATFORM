@@ -3,7 +3,13 @@
 @section('maincontent')
   <main class="flex-1 flex items-center justify-center px-6 py-14 bg-gray-50" >
     <div class="w-full max-w-xl flex flex-col gap-8">
-
+       @if($errors->any())
+        <ul>
+          @foreach($errors->all() as $error)
+          <li style="color:red">{{$error}}</li>
+          @endforeach
+        </ul>
+        @endif
       <!-- Progress bar -->
       <div class="animate-fade-up flex flex-col gap-3">
         <div class="flex items-center gap-2">

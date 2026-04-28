@@ -16,7 +16,13 @@
     @csrf
     @method("POST")
       <div class="glass-card animate-fade-up delay-1 !items-stretch !text-left gap-4">
-
+       @if($errors->any())
+        <ul>
+          @foreach($errors->all() as $error)
+          <li style="color:red">{{$error}}</li>
+          @endforeach
+        </ul>
+        @endif
         <!-- Name -->
         <div class="animate-fade-up delay-1 flex flex-col gap-1 w-full">
           <label class="text-xs font-medium text-gray-500 pl-1">Nom complet</label>

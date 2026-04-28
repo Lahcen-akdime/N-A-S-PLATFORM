@@ -16,7 +16,8 @@ class WorkController
         Work::create(['name'=>$request->name]);
         return to_route('work.index');
     }
-    public function update(Request $request , Work $work){
+    public function update(Request $request){
+        $work = Work::find($request->workid);
         $work->update(['name'=>$request->name]);
         return to_route('work.index');
     }

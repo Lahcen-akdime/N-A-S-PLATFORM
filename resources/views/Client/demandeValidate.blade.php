@@ -25,7 +25,13 @@
         <h1 class="text-3xl font-bold text-gray-900 tracking-tight">Décrivez votre besoin</h1>
         <p class="text-sm text-gray-500 mt-2">Donnez le maximum de détails pour que le bricoleur comprenne votre demande.</p>
       </div>
- 
+     @if($errors->any())
+        <ul>
+          @foreach($errors->all() as $error)
+          <li style="color:red">{{$error}}</li>
+          @endforeach
+        </ul>
+      @endif
       <!-- Form card -->
     <form action="{{route('demande.store')}}" method="POST">
         @csrf

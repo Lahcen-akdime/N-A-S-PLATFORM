@@ -1,4 +1,5 @@
 <?php $__env->startSection('login_logout_buttons'); ?>
+    <?php if($role == 'visitor'): ?>
       <!-- CTA -->
       <div class="flex items-center gap-3">
         <a href="<?php echo e(route('login.create')); ?>" class="text-sm font-medium text-gray-700 hover:text-gray-900 transition-colors">Login</a>
@@ -6,12 +7,22 @@
           Sign in
         </a>
       </div>
+    <?php else: ?>
+      <!-- CTA -->
+      <div class="flex items-center gap-3">
+        <a href="<?php echo e(route('Logout')); ?>" class="btn-primary text-sm font-semibold px-4 py-2 rounded-full hidden sm:inline-block">
+          Logout
+        </a>
+      </div>
+    <?php endif; ?>
 <?php $__env->stopSection(); ?>
   <!-- ===== MAIN ===== -->
 <?php $__env->startSection('maincontent'); ?>
 <!-- MAIN -->
   <main class="flex-1 max-w-6xl mx-auto w-full px-6 py-16 flex flex-col gap-14">
- 
+        <?php if(session('message')): ?>
+          <h2 style="color:green ; border:solid 1px green;border-radius:5px;padding:10px"><?php echo e(session('message')); ?></h2>
+        <?php endif; ?>
     <!-- Title -->
     <div class="animate-fade-up text-center">
       <p class="text-xs uppercase tracking-widest font-semibold text-gray-400 mb-3">Support</p>
@@ -87,6 +98,8 @@
  
       <!-- Right — form -->
       <div class="md:col-span-3">
+      <form action="<?php echo e(route('contact.store')); ?>" method="post">
+        <?php echo csrf_field(); ?>
         <div id="form-view" class="glass-card !items-start !text-left !cursor-default !rounded-2xl !p-10 gap-6 w-full">
  
           <div>
@@ -97,36 +110,44 @@
           <div class="w-full border-t border-gray-100"></div>
  
           <div class="flex flex-col gap-5 w-full">
- 
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 w-full">
-              <div class="flex flex-col gap-1.5">
-                <label class="text-xs font-semibold text-gray-500 uppercase tracking-widest">Nom complet</label>
-                <input type="text" id="inp-name" placeholder="Jean Dupont"
-                  class="w-full px-4 py-3 rounded-xl border border-gray-200 bg-gray-50 text-sm text-gray-900 placeholder-gray-400 outline-none focus:border-gray-900 focus:bg-white focus:ring-2 focus:ring-gray-900/5 transition-all" />
-              </div>
-              <div class="flex flex-col gap-1.5">
-                <label class="text-xs font-semibold text-gray-500 uppercase tracking-widest">Email</label>
-                <input type="email" id="inp-email" placeholder="jean@exemple.com"
-                  class="w-full px-4 py-3 rounded-xl border border-gray-200 bg-gray-50 text-sm text-gray-900 placeholder-gray-400 outline-none focus:border-gray-900 focus:bg-white focus:ring-2 focus:ring-gray-900/5 transition-all" />
-              </div>
-            </div>
- 
+            <?php if($role == 'visitor'): ?>
+            <?php if (isset($component)) { $__componentOriginal5f43ef558bd0483ce346b7804ca1bb05 = $component; } ?>
+<?php if (isset($attributes)) { $__attributesOriginal5f43ef558bd0483ce346b7804ca1bb05 = $attributes; } ?>
+<?php $component = Illuminate\View\AnonymousComponent::resolve(['view' => 'components.Forms.credantials','data' => []] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? $attributes->all() : [])); ?>
+<?php $component->withName('Forms.credantials'); ?>
+<?php if ($component->shouldRender()): ?>
+<?php $__env->startComponent($component->resolveView(), $component->data()); ?>
+<?php if (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag): ?>
+<?php $attributes = $attributes->except(\Illuminate\View\AnonymousComponent::ignoredParameterNames()); ?>
+<?php endif; ?>
+<?php $component->withAttributes([]); ?>
+<?php echo $__env->renderComponent(); ?>
+<?php endif; ?>
+<?php if (isset($__attributesOriginal5f43ef558bd0483ce346b7804ca1bb05)): ?>
+<?php $attributes = $__attributesOriginal5f43ef558bd0483ce346b7804ca1bb05; ?>
+<?php unset($__attributesOriginal5f43ef558bd0483ce346b7804ca1bb05); ?>
+<?php endif; ?>
+<?php if (isset($__componentOriginal5f43ef558bd0483ce346b7804ca1bb05)): ?>
+<?php $component = $__componentOriginal5f43ef558bd0483ce346b7804ca1bb05; ?>
+<?php unset($__componentOriginal5f43ef558bd0483ce346b7804ca1bb05); ?>
+<?php endif; ?>
+            <?php endif; ?>
+
             <div class="flex flex-col gap-1.5 w-full">
               <label class="text-xs font-semibold text-gray-500 uppercase tracking-widest">Sujet</label>
-              <select class="w-full px-4 py-3 rounded-xl border border-gray-200 bg-gray-50 text-sm text-gray-900 outline-none focus:border-gray-900 focus:bg-white focus:ring-2 focus:ring-gray-900/5 transition-all">
+              <select require name="subject" class="w-full px-4 py-3 rounded-xl border border-gray-200 bg-gray-50 text-sm text-gray-900 outline-none focus:border-gray-900 focus:bg-white focus:ring-2 focus:ring-gray-900/5 transition-all">
                 <option value="" disabled selected>Sélectionnez un sujet</option>
-                <option>Problème technique</option>
-                <option>Question sur mon compte</option>
-                <option>Signaler un travailleur</option>
-                <option>Demande de partenariat</option>
-                <option>Demande d'un stage</option>
-                <option>Autre</option>
+                <option value="technical problem">technical problem</option>
+                <option value="Question of compte">Question of compte</option>
+                <option value="Report a user">Report a user</option>
+                <option value="Demander un stage">demande du stage</option>
+                <option value="autre">Autre</option>
               </select>
             </div>
  
             <div class="flex flex-col gap-1.5 w-full">
-              <label class="text-xs font-semibold text-gray-500 uppercase tracking-widest">Message</label>
-              <textarea rows="6" placeholder="Décrivez votre demande en détail..."
+              <label class="text-xs font-semibold text-gray-500 uppercase tracking-widest" >Message</label>
+              <textarea name="message" rows="6" placeholder="Décrivez votre demande en détail..." require
                 class="w-full px-4 py-3 rounded-xl border border-gray-200 bg-gray-50 text-sm text-gray-900 placeholder-gray-400 outline-none focus:border-gray-900 focus:bg-white focus:ring-2 focus:ring-gray-900/5 transition-all resize-none leading-relaxed"></textarea>
             </div>
  
@@ -158,7 +179,7 @@
             Envoyer un autre message
           </button>
         </div>
- 
+      </form>
       </div>
  
     </div>
