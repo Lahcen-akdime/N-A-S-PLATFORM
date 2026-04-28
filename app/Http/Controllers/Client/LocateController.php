@@ -12,7 +12,7 @@ class LocateController
 {
     public function index($work)
     {
-        $workers = Worker::with('work')->whereHas('work',function ($query) use ($work){
+        $workers = Worker::with('work')->where('is_accepted','=',true)->whereHas('work',function ($query) use ($work){
                                         $query->where('name','=',$work);
                                         })->get();
         if($workers){
