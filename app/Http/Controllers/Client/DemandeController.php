@@ -44,7 +44,7 @@ class DemandeController
             'description'=>$request->description,
             'emergency'=>$request->emergency,
         ]);
-        return to_route('demande.index');
+        return to_route('demande.index') ;
     }
 
     /**

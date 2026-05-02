@@ -29,7 +29,11 @@
           <a href="{{route('Admin.index')}}" class="hover:text-gray-900 transition-colors">Home</a>
           <a href="{{route('work.index')}}" class="hover:text-gray-900 transition-colors">Works</a>
         @endif
+        @if($role != 'admin')
         <a href="{{route('contact.create')}}" class="hover:text-gray-900 transition-colors">Contact us</a>
+        @else
+        <a href="{{route('contact.index')}}" class="hover:text-gray-900 transition-colors">Contacts</a>
+        @endif
       </nav>
 
       <!-- Login -->

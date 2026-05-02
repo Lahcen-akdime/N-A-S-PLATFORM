@@ -76,7 +76,13 @@ class ClientController
      */
     public function update(Request $request, client $client)
     {
-        //
+            $client->user->update([
+                'name' => $request->name ,
+            ]);
+            $client->update([
+                'ville' => $request->ville ,
+                'adress' => $request->adress ,
+            ]);
     }
 
     /**

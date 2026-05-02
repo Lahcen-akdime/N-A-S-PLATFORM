@@ -19,15 +19,16 @@
         its a web application designed to bridge the gap between skilled tradespeople and individuals.
         This platform enables users to easily find a qualified professional in a specific field, based on their immediate needs.
         </p>
-     
+        <?php if($role == 'visitor'): ?>
         <div class="animate-fade-up delay-3 flex items-center gap-3 flex-wrap">
-          <a href="#" class="btn-primary px-6 py-3 rounded-full text-sm font-semibold">
+          <a href="/shoose" class="btn-primary px-6 py-3 rounded-full text-sm font-semibold">
             Try App For Free
           </a>
-          <a href="#" class="btn-outline px-6 py-3 rounded-full text-sm font-semibold">
-            Book A Demo
+          <a href="/contact/create" class="btn-outline px-6 py-3 rounded-full text-sm font-semibold">
+            Contact us
           </a>
         </div>
+        <?php endif; ?>
       
         <!-- Buttons -->
       </div>
@@ -59,7 +60,6 @@
               </div>
             </div>
             <div>
-              <p class="text-[10px] text-gray-400 mb-1">Added to cart</p>
               <div class="space-y-1">
                 <div class="bar-green rounded-lg h-7 flex items-center justify-center">
                   <span class="text-white text-[10px] font-bold">23.4%</span>
@@ -83,7 +83,7 @@
           <div class="w-7 h-7 rounded-full bg-white/20 flex items-center justify-center">
             <span class="text-white text-xs">✦</span>
           </div>
-          <span class="text-white text-sm font-medium">Di</span>
+          <span class="text-white text-sm font-medium">N-A-S</span>
         </div>
       </div>
     </section><?php /**PATH C:\laragon\www\N-A-S\resources\views/components/hero.blade.php ENDPATH**/ ?>

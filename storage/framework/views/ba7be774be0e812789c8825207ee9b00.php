@@ -29,7 +29,11 @@
           <a href="<?php echo e(route('Admin.index')); ?>" class="hover:text-gray-900 transition-colors">Home</a>
           <a href="<?php echo e(route('work.index')); ?>" class="hover:text-gray-900 transition-colors">Works</a>
         <?php endif; ?>
+        <?php if($role != 'admin'): ?>
         <a href="<?php echo e(route('contact.create')); ?>" class="hover:text-gray-900 transition-colors">Contact us</a>
+        <?php else: ?>
+        <a href="<?php echo e(route('contact.index')); ?>" class="hover:text-gray-900 transition-colors">Contacts</a>
+        <?php endif; ?>
       </nav>
 
       <!-- Login -->

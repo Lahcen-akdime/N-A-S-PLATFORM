@@ -14,11 +14,11 @@ return new class extends Migration
         Schema::create('contacts', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
+            $table->foreignId('user_id')->nullable()->constrained();
             $table->string('name');
             $table->string('email');
             $table->enum('subject',['technical problem','Question of compte','Report a user','Demander un stage','Autre']);
             $table->text('message');
-            $table->boolean('is_authaunticated')->default(false);
         });
     }
 

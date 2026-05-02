@@ -23,7 +23,7 @@ class workerStoreRequest extends FormRequest
     public function rules(): array
     {
         return [
-            "name" => 'required|string|between:3,10',
+            "name" => 'required|string|between:3,15',
             "email" => 'required|string|email',
             "password" => 'required|string|between:6,30',
             'experience_years'=>'integer',

@@ -3,8 +3,8 @@
 namespace App\Http\Controllers\Worker;
 
 use App\Http\Controllers\Controller;
-use App\Http\Helpers\StoreFiles;
 use App\Http\Requests\workerStoreRequest;
+use App\Http\Services\StoreFiles;
 use App\Models\Document;
 use App\Models\User;
 use App\Models\Work;
@@ -58,29 +58,15 @@ class WorkerController
                     'adress' => $request->adress ,
                     'user_id'=>$user->id ,
             ]);
+            
+            $docTypes = ["diploma", "certificate", "national_card"];
 
-            if($request->deploma){
-                $path = StoreFiles::StoreFileAndGetPath($request->deploma,$user->id,"diploma") ;
+            foreach($docTypes as $type){
+                $path = StoreFiles::StoreFileAndGetPath($request->$type,$user->id, $type) ;
                 Document::create([
-                'type' => 'diploma' ,
+                'type' => $type ,
                 'file_path' => $path ,
                 'worker_id' => $worker->id 
-                ]);
-            }
-            if($request->certificate){
-                $path = StoreFiles::StoreFileAndGetPath($request->certificate,$user->id,"certificate") ;
-                Document::create([
-                'type' => 'certificate' , 
-                'file_path' => $path ,
-                'worker_id' => $worker->id
-                ]);
-            }
-            if($request->national_card){
-                $path = StoreFiles::StoreFileAndGetPath($request->national_card,$user->id,"national_card") ;
-                Document::create([
-                'type' => 'national_card' , 
-                'file_path' => $path ,
-                'worker_id' => $worker->id
                 ]);
             }
             DB::commit();

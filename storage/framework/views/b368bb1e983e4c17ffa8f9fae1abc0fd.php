@@ -15,7 +15,7 @@
  
       <!-- Avatar + name + badge -->
       <div class="flex items-center gap-8 w-full">
-        <div class="w-28 h-28 rounded-2xl bg-gray-200 flex-shrink-0 flex items-center justify-center" style="background-image: url(<?php echo e($imageUrl); ?>);background-size:contain;">
+        <div class="w-28 h-28 rounded-2xl bg-gray-200 flex-shrink-0 flex items-center justify-center" style="background-image: url(<?php echo e($imageUrl); ?>);background-size:cover;">
         </div>
         <div class="flex-1 min-w-0">
           <h1 class="text-xl font-bold text-gray-900 tracking-tight"><?php echo e($worker->user->name); ?></h1>
@@ -153,9 +153,18 @@
             Accepter ✔️
           </button>
         </form>
+        <form action="<?php echo e(route('accept',$worker)); ?>" method="post">
+          <?php echo csrf_field(); ?>
+          <?php echo method_field('PATCH'); ?>
+          <button
+             class="btn-primary flex-1 flex items-center justify-center gap-2 px-6 py-4 rounded-full text-sm font-semibold">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+            </svg>
+            Refuse ✖️
+          </button>
+        </form>
         <?php endif; ?>
       </div>
- 
     </div>
   </main>
 <?php $__env->stopSection(); ?>

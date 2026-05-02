@@ -113,7 +113,7 @@
         </div>
  
         <div class="w-full border-t border-gray-100"></div>
-        <a href="#" class="text-xs font-semibold text-gray-400 hover:text-gray-700 transition-colors">Voir toutes les demandes →</a>
+        <!-- <a href="#" class="text-xs font-semibold text-gray-400 hover:text-gray-700 transition-colors">Voir toutes les demandes →</a> -->
       </div>
     </div>
  

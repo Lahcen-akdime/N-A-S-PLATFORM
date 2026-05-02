@@ -14,7 +14,9 @@ class ContactController extends Controller
      */
     public function index()
     {
-        //
+        $role = "admin" ;
+        $messages = Contact::all();
+        return view('Admin.contact',compact('role','messages'));
     }
 
     /**
@@ -31,16 +33,12 @@ class ContactController extends Controller
      */
     public function store(ContactRequest $request)
     {
-        $is_authaunticated = false ;
-        if(Auth::user()){
-        $is_authaunticated = true ;
-        }
         Contact::create([
         'name' => Auth::user()->name ?? $request->name ,
         'email' => Auth::user()->email ?? $request->email ,
         'subject' => $request->subject ,
         'message' => $request->message ,
-        'is_authaunticated' => $is_authaunticated 
+        'user_id' => Auth::user()->name ?? null
         ]);
         return to_route('contact.create')->with('message','We recive your message seccussfuly !');
     }

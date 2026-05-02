@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('documents', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->foreignId('worker_id')->constrained();
+            $table->foreignId('worker_id')->constrained()->cascadeOnDelete();
             $table->enum('type',['diploma','certificate','national_card']);
             $table->string('file_path');
         });

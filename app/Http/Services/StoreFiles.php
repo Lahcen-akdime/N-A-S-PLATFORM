@@ -1,5 +1,5 @@
 <?php
-namespace App\Http\Helpers ;
+namespace App\Http\Services ;
 
 use Illuminate\Support\Str;
 
@@ -12,7 +12,4 @@ class StoreFiles {
             'public');
         return $path ;
     }
-
-
-
 }

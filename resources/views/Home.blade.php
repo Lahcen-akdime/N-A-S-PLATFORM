@@ -11,7 +11,7 @@
   <!-- ===== MAIN ===== -->
 @section('maincontent')
     <!-- Hero Section -->
-  <x-hero />
+  <x-hero :role="$role"/>
     <!-- Features Strip -->
   <x-features />
     <!-- Feature Cards -->
