@@ -15,8 +15,10 @@ class ContactController extends Controller
     public function index()
     {
         $role = "admin" ;
+        $authenticated = Contact::where('user_id','!=',null)->count();
+        $notAuthenticated = Contact::where('user_id','=',null)->count();
         $messages = Contact::all();
-        return view('Admin.contact',compact('role','messages'));
+        return view('Admin.contact',compact('role','messages','authenticated','notAuthenticated'));
     }
 
     /**
@@ -48,7 +50,8 @@ class ContactController extends Controller
      */
     public function show(Contact $contact)
     {
-        //
+        $role = "admin" ;
+        return view('Admin.contactDetails',compact('contact','role'));
     }
 
     /**
@@ -73,5 +76,22 @@ class ContactController extends Controller
     public function destroy(Contact $contact)
     {
         //
+    }
+    public function filter(string $type) {
+        if($type != 'all'){
+        $role = "admin" ;
+        $authenticated = Contact::where('user_id','!=',null)->count();
+        $notAuthenticated = Contact::where('user_id','=',null)->count();
+            if($type == 'authenticated'){
+            $messages = Contact::where('user_id','!=',null)->get();
+            }
+            if($type == 'anonymos'){
+            $messages = Contact::where('user_id','=',null)->get();
+            }
+            return view('Admin.contact',compact('role','messages','authenticated','notAuthenticated'));
+        }
+        else{
+        return to_route('contact.index');
+        }
     }
 }

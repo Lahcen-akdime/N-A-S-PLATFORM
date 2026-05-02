@@ -42,3 +42,4 @@ Route::resource('work',WorkController::class);
 
 Route::resource('contact',ContactController::class);
 Route::resource('locate',LocateController::class);
+Route::get('/filter/{type}',[ContactController::class,'filter'])->name('filter');
