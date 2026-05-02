@@ -1,4 +1,3 @@
-
 <?php $__env->startSection('login_logout_buttons'); ?>
       <!-- CTA -->
       <div class="flex items-center gap-3">
@@ -20,14 +19,14 @@
       </div>
       <div class="flex items-center gap-3">
         <div class="glass-card !flex-row !p-3 !px-4 !rounded-full !cursor-default !items-center gap-2">
-          <span class="text-xs font-semibold text-gray-700">7 total</span>
+          <span class="text-xs font-semibold text-gray-700"><?php echo e($messages->count()); ?> total</span>
         </div>
       </div>
     </div>
  
     <!-- Filter tabs -->
     <div class="animate-fade-up delay-1 flex items-center gap-2 flex-wrap">
-      <button  class="filter-btn px-4 py-2 rounded-full text-sm font-semibold bg-gray-900 text-white transition-all">Tous <span class="ml-1 text-xs opacity-60">7</span></button>
+      <button  class="filter-btn px-4 py-2 rounded-full text-sm font-semibold bg-gray-900 text-white transition-all">Tous <span class="ml-1 text-xs opacity-60"><?php echo e($messages->count()); ?></span></button>
       <button  class="filter-btn px-4 py-2 rounded-full text-sm font-semibold  border border-gray-200  bg-gray-900 text-white hover:border-gray-400 transition-all">Authentifiés <span class="ml-1 text-xs opacity-60">4</span></button>
       <button  class="filter-btn px-4 py-2 rounded-full text-sm font-semibold border border-gray-200  bg-gray-900 text-white hover:border-gray-400 transition-all">Anonymes <span class="ml-1 text-xs opacity-60">3</span></button>
     </div>
@@ -36,13 +35,11 @@
     <div class="glass-card !items-start !text-left !cursor-default !rounded-2xl !p-0 gap-0 animate-fade-up delay-2 w-full overflow-hidden">
  
       <!-- Head -->
-      <div class="grid grid-cols-12 gap-4 px-6 py-4 border-b border-gray-100 bg-gray-50/60">
+      <div class="grid grid-cols-12 gap-3 px-6 py-4 border-b border-gray-100 bg-gray-50/60">
         <span class="col-span-1 text-xs font-semibold text-gray-400 uppercase tracking-widest">#</span>
         <span class="col-span-2 text-xs font-semibold text-gray-400 uppercase tracking-widest">Nom</span>
         <span class="col-span-2 text-xs font-semibold text-gray-400 uppercase tracking-widest">Email</span>
         <span class="col-span-2 text-xs font-semibold text-gray-400 uppercase tracking-widest">Sujet</span>
-        <span class="col-span-3 text-xs font-semibold text-gray-400 uppercase tracking-widest">Message</span>
-        <span class="col-span-1 text-xs font-semibold text-gray-400 uppercase tracking-widest">Statut</span>
         <span class="col-span-1 text-xs font-semibold text-gray-400 uppercase tracking-widest text-right">Action</span>
       </div>
  
@@ -51,9 +48,9 @@
  <?php $__currentLoopData = $messages; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $message): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
         <div class="msg-row grid grid-cols-12 gap-4 px-6 py-5 items-start hover:bg-gray-50/60 transition-colors" data-read="false" data-auth="true">
           <div class="col-span-1 flex items-center gap-1.5 pt-1"><span class="w-2 h-2 rounded-full bg-orange-400 flex-shrink-0"></span><span class="text-xs font-bold text-gray-300">01</span></div>
-          <div class="col-span-2"><p class="text-sm font-semibold text-gray-900"><?php echo e(message->name); ?></p></div>
-          <div class="col-span-2"><p class="text-sm text-gray-500 truncate"><?php echo e(message->name); ?></p></div>
-          <div class="col-span-2"><span class="text-xs font-semibold px-2.5 py-1 rounded-full bg-red-50 text-red-600 border border-red-100"><?php echo e(message->subject); ?></span></div>
+          <div class="col-span-2"><p class="text-sm font-semibold text-gray-900"><?php echo e($message->name); ?></p></div>
+          <div class="col-span-2"><p class="text-sm text-gray-500 truncate"><?php echo e($message->email); ?></p></div>
+          <div class="col-span-2"><span class="text-xs font-semibold px-2.5 py-1 rounded-full bg-red-50 text-red-600 border border-red-100"><?php echo e($message->subject); ?></span></div>
           <div class="col-span-1 flex justify-end"><button onclick="openMsg(0)" class="w-8 h-8 rounded-xl border border-gray-200 bg-white flex items-center justify-center hover:border-gray-400 transition-all"><svg width="13" height="13" viewBox="0 0 16 16" fill="none"><path d="M1 8s2.5-5 7-5 7 5 7 5-2.5 5-7 5-7-5-7-5z" stroke="#6b7280" stroke-width="1.4"/><circle cx="8" cy="8" r="2" stroke="#6b7280" stroke-width="1.3"/></svg></button></div>
         </div>
  <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
@@ -118,7 +115,6 @@
         : 'text-xs font-semibold px-3 py-1 rounded-full bg-gray-100 text-gray-500 border border-gray-200';
       document.getElementById('modal').classList.remove('hidden');
     }
- 
     function closeModal() { document.getElementById('modal').classList.add('hidden'); }
   </script>
 <?php $__env->stopSection(); ?>
