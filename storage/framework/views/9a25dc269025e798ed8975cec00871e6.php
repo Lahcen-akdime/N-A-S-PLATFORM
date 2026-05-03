@@ -28,7 +28,7 @@
     <p class="text-xs uppercase tracking-widest font-semibold text-gray-400 mb-3">Support</p>
       <h1 class="text-4xl font-bold text-gray-900 tracking-tight mb-3">Contactez-nous</h1>
       <p class="text-sm text-gray-500 max-w-md mx-auto">Une question, un problème ou une suggestion ? Notre équipe vous répond dans les plus brefs délais.</p>
-    </div>
+  </div>
     
     <!-- Grid: info left + form right -->
     <div class="grid grid-cols-1 md:grid-cols-5 gap-8 animate-fade-up delay-1">
@@ -118,26 +118,16 @@
                 </ul>
             <?php endif; ?>
             <?php if($role == 'visitor'): ?>
-            <?php if (isset($component)) { $__componentOriginal5f43ef558bd0483ce346b7804ca1bb05 = $component; } ?>
-<?php if (isset($attributes)) { $__attributesOriginal5f43ef558bd0483ce346b7804ca1bb05 = $attributes; } ?>
-<?php $component = Illuminate\View\AnonymousComponent::resolve(['view' => 'components.Forms.credantials','data' => []] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? $attributes->all() : [])); ?>
-<?php $component->withName('Forms.credantials'); ?>
-<?php if ($component->shouldRender()): ?>
-<?php $__env->startComponent($component->resolveView(), $component->data()); ?>
-<?php if (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag): ?>
-<?php $attributes = $attributes->except(\Illuminate\View\AnonymousComponent::ignoredParameterNames()); ?>
-<?php endif; ?>
-<?php $component->withAttributes([]); ?>
-<?php echo $__env->renderComponent(); ?>
-<?php endif; ?>
-<?php if (isset($__attributesOriginal5f43ef558bd0483ce346b7804ca1bb05)): ?>
-<?php $attributes = $__attributesOriginal5f43ef558bd0483ce346b7804ca1bb05; ?>
-<?php unset($__attributesOriginal5f43ef558bd0483ce346b7804ca1bb05); ?>
-<?php endif; ?>
-<?php if (isset($__componentOriginal5f43ef558bd0483ce346b7804ca1bb05)): ?>
-<?php $component = $__componentOriginal5f43ef558bd0483ce346b7804ca1bb05; ?>
-<?php unset($__componentOriginal5f43ef558bd0483ce346b7804ca1bb05); ?>
-<?php endif; ?>
+            <div class="animate-fade-up delay-1 flex flex-col gap-1 w-full">
+            <label class="text-xs font-medium text-gray-500 pl-1">YOUR NAME</label>
+            <input type="text" placeholder="Jean Dupont" name="name"
+            class="w-full px-4 py-3 rounded-xl border border-gray-200 bg-gray-50 text-sm text-gray-900 placeholder-gray-400 outline-none focus:border-gray-900 focus:bg-white focus:ring-2 focus:ring-gray-900/5 transition-all" />
+            </div>
+            <div class="animate-fade-up delay-2 flex flex-col gap-1 w-full">
+            <label class="text-xs font-medium text-gray-500 pl-1">ADRESS EMAIL</label>
+            <input type="email" placeholder="jean@exemple.com" name="email"
+              class="w-full px-4 py-3 rounded-xl border border-gray-200 bg-gray-50 text-sm text-gray-900 placeholder-gray-400 outline-none focus:border-gray-900 focus:bg-white focus:ring-2 focus:ring-gray-900/5 transition-all" />
+            </div>
             <?php endif; ?>
 
             <div class="flex flex-col gap-1.5 w-full">
