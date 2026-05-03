@@ -101,6 +101,11 @@
           </svg>
           Modifier mon profil
         </a>
+        <?php else: ?>
+        <a href="javascript:history.back()"
+           class="btn-primary w-full flex items-center justify-center gap-2 px-5 py-3 rounded-full text-sm font-semibold">
+          Retour
+        </a>
         <?php endif; ?>
       </div>
  

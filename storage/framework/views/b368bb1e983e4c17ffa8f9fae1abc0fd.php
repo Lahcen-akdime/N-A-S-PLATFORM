@@ -12,7 +12,7 @@
  
     <!-- Profile card -->
     <div class="glass-card !items-start !text-left !cursor-default !rounded-2xl !p-14 gap-12 animate-fade-up delay-1 w-full">
- 
+      <a href="javascript:history.back()">< Retour</a>
       <!-- Avatar + name + badge -->
       <div class="flex items-center gap-8 w-full">
         <div class="w-28 h-28 rounded-2xl bg-gray-200 flex-shrink-0 flex items-center justify-center" style="background-image: url(<?php echo e($imageUrl); ?>);background-size:cover;">
@@ -100,10 +100,10 @@
               <path d="M4 2h6l4 4v8a1 1 0 01-1 1H4a1 1 0 01-1-1V3a1 1 0 011-1z" stroke="#9ca3af" stroke-width="1.3"/>
               <path d="M9 2v4h4" stroke="#9ca3af" stroke-width="1.3" stroke-linecap="round"/>
             </svg>
-            Certificat_Plomberie.pdf
+            Certificate
           </a>
           <?php if($role == 'admin'): ?>
-          <a href="#" class="flex items-center gap-2 px-3 py-2 rounded-xl border border-gray-200 bg-white text-xs font-medium text-gray-700 hover:border-gray-400 hover:text-gray-900 transition-all">
+          <a href="<?php echo e($cin); ?>" class="flex items-center gap-2 px-3 py-2 rounded-xl border border-gray-200 bg-white text-xs font-medium text-gray-700 hover:border-gray-400 hover:text-gray-900 transition-all">
             <svg width="13" height="13" viewBox="0 0 16 16" fill="none">
               <path d="M4 2h6l4 4v8a1 1 0 01-1 1H4a1 1 0 01-1-1V3a1 1 0 011-1z" stroke="#9ca3af" stroke-width="1.3"/>
               <path d="M9 2v4h4" stroke="#9ca3af" stroke-width="1.3" stroke-linecap="round"/>
@@ -143,7 +143,7 @@
             </svg>
             Modifier le profil
           </a>
-        <?php elseif($role == 'admin'): ?>
+        <?php elseif($role == 'admin' && $worker->is_accepted == false): ?>
         <form action="<?php echo e(route('accept',$worker)); ?>" method="post">
           <?php echo csrf_field(); ?>
           <?php echo method_field('PATCH'); ?>

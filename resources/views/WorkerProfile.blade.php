@@ -13,7 +13,7 @@
  
     <!-- Profile card -->
     <div class="glass-card !items-start !text-left !cursor-default !rounded-2xl !p-14 gap-12 animate-fade-up delay-1 w-full">
- 
+      <a href="javascript:history.back()">< Retour</a>
       <!-- Avatar + name + badge -->
       <div class="flex items-center gap-8 w-full">
         <div class="w-28 h-28 rounded-2xl bg-gray-200 flex-shrink-0 flex items-center justify-center" style="background-image: url({{$imageUrl}});background-size:cover;">
@@ -144,7 +144,7 @@
             </svg>
             Modifier le profil
           </a>
-        @elseif($role == 'admin')
+        @elseif($role == 'admin' && $worker->is_accepted == false)
         <form action="{{route('accept',$worker)}}" method="post">
           @csrf
           @method('PATCH')

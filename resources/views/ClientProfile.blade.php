@@ -102,6 +102,11 @@
           </svg>
           Modifier mon profil
         </a>
+        @else
+        <a href="javascript:history.back()"
+           class="btn-primary w-full flex items-center justify-center gap-2 px-5 py-3 rounded-full text-sm font-semibold">
+          Retour
+        </a>
         @endif
       </div>
  
