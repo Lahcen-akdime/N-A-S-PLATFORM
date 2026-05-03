@@ -9,5 +9,5 @@
 @endsection
   <!-- ===== MAIN ===== -->
 @section('maincontent')
-<x-hero />
+<x-hero :role="$role"/>
 @endsection

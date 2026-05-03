@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\Admin\UsersController;
 use App\Http\Controllers\Admin\WorkController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Client\ClientController;
@@ -34,12 +35,16 @@ Route::middleware(login_middleware::class)->group(function () {
     });
 });
 
+Route::get('/filter/{type}',[ContactController::class,'filter'])->name('filterMessages');
 Route::resource('workerDemandes',WorkerDemandeController::class) ;
 
 Route::resource('Admin',AdminController::class);
 Route::patch('/accept/{worker}',[AdminController::class,'accept'])->name('accept');
+Route::patch('/refuse/{worker}',[AdminController::class,'refuse'])->name('refuse');
 Route::resource('work',WorkController::class);
 
 Route::resource('contact',ContactController::class);
 Route::resource('locate',LocateController::class);
 Route::get('/filter/{type}',[ContactController::class,'filter'])->name('filter');
+
+Route::resource('users',UsersController::class);

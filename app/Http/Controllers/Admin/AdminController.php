@@ -44,7 +44,11 @@ class AdminController
         $worker->update(['is_accepted'=>true]);
         return to_route('Admin.index');
     }
-
+    public function refuse(Worker $worker)
+    {
+    
+        return to_route('Admin.index');
+    }
     /**
      * Show the form for editing the resource.
      */

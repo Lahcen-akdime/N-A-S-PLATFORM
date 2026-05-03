@@ -1,4 +1,4 @@
-const map = L.map('map') 
+const map = L.map('map')
 
 async function findUser() {
 const getCoords = async () => {

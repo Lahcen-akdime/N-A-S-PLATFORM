@@ -153,9 +153,9 @@
             Accepter ✔️
           </button>
         </form>
-        <form action="<?php echo e(route('accept',$worker)); ?>" method="post">
+        <form action="<?php echo e(route('users.destroy',$worker->id)); ?>" method="post">
           <?php echo csrf_field(); ?>
-          <?php echo method_field('PATCH'); ?>
+          <?php echo method_field('delete'); ?>
           <button
              class="btn-primary flex-1 flex items-center justify-center gap-2 px-6 py-4 rounded-full text-sm font-semibold">
             <svg width="14" height="14" viewBox="0 0 14 14" fill="none">

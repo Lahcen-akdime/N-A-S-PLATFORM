@@ -17,7 +17,7 @@ return new class extends Migration
         $table->integer('evaluation')->default(0);
         $table->string('adress');
         $table->string('ville');
-        $table->foreignId('user_id')->constrained();
+        $table->foreignId('user_id')->constrained()->cascadeOnDelete();
         $table->timestamps();
         });
     }

@@ -21,13 +21,15 @@
         <?php if($role == 'client'): ?>
         <a href="<?php echo e(route('demande.index')); ?>" class="hover:text-gray-900 transition-colors">Demandes</a>
         <a href="<?php echo e(route('demande.create')); ?>" class="hover:text-gray-900 transition-colors">Locate</a>
+        <a href="<?php echo e(route('client.show',Auth::user()->client)); ?>" class="hover:text-gray-900 transition-colors">Profile</a>
         <?php elseif($role == 'worker'): ?>
         <a href="/profile/<?php echo e(Auth::user()->worker->id); ?>" class="hover:text-gray-900 transition-colors">Profile</a>
         <a href="<?php echo e(route('workerDemandes.index')); ?>" class="hover:text-gray-900 transition-colors">Demandes</a>
         <?php endif; ?>
         <?php if($role == 'admin'): ?>
-          <a href="<?php echo e(route('Admin.index')); ?>" class="hover:text-gray-900 transition-colors">Home</a>
+          <a href="<?php echo e(route('Admin.index')); ?>" class="hover:text-gray-900 transition-colors">Dashboard</a>
           <a href="<?php echo e(route('work.index')); ?>" class="hover:text-gray-900 transition-colors">Works</a>
+          <a href="<?php echo e(route('users.index')); ?>" class="hover:text-gray-900 transition-colors">Users</a>
         <?php endif; ?>
         <?php if($role != 'admin'): ?>
         <a href="<?php echo e(route('contact.create')); ?>" class="hover:text-gray-900 transition-colors">Contact us</a>

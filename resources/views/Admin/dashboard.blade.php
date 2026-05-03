@@ -16,7 +16,7 @@
       <div>
         <p class="text-xs uppercase tracking-widest font-semibold text-gray-400 mb-1">Vue d'ensemble</p>
         <h1 class="text-2xl font-bold text-gray-900 tracking-tight">Tableau de bord</h1>
-        <p class="text-sm text-gray-500 mt-1">Statistiques globales de la plateforme Sparrow.ai</p>
+        <p class="text-sm text-gray-500 mt-1">Statistiques globales de la plateforme </p>
       </div>
       <span class="text-xs text-gray-400 font-medium">Mis à jour : aujourd'hui à {{$currentTime}}</span>
     </div>

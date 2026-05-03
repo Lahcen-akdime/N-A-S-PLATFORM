@@ -54,13 +54,8 @@ class ContactController extends Controller
         return view('Admin.contactDetails',compact('contact','role'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Contact $contact)
-    {
-        //
-    }
+
+    
 
     /**
      * Update the specified resource in storage.
