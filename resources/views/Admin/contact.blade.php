@@ -51,9 +51,9 @@
  @foreach($messages as $message)
         <div class="msg-row grid grid-cols-12 gap-4 px-6 py-5 items-start hover:bg-gray-50/60 transition-colors" data-read="false" data-auth="true">
           <div class="col-span-1 flex items-center gap-1.5 pt-1"><span class="w-2 h-2 rounded-full bg-orange-400 flex-shrink-0"></span><span class="text-xs font-bold text-gray-300">01</span></div>
-          <div class="col-span-2"><p class="text-sm font-semibold text-gray-900">{{message->name}}</p></div>
-          <div class="col-span-2"><p class="text-sm text-gray-500 truncate">{{message->name}}</p></div>
-          <div class="col-span-2"><span class="text-xs font-semibold px-2.5 py-1 rounded-full bg-red-50 text-red-600 border border-red-100">{{message->subject}}</span></div>
+          <div class="col-span-2"><p class="text-sm font-semibold text-gray-900">{{$message->name}}</p></div>
+          <div class="col-span-2"><p class="text-sm text-gray-500 truncate">{{$message->name}}</p></div>
+          <div class="col-span-2"><span class="text-xs font-semibold px-2.5 py-1 rounded-full bg-red-50 text-red-600 border border-red-100">{{$message->subject}}</span></div>
           <div class="col-span-1 flex justify-end"><button onclick="openMsg(0)" class="w-8 h-8 rounded-xl border border-gray-200 bg-white flex items-center justify-center hover:border-gray-400 transition-all"><svg width="13" height="13" viewBox="0 0 16 16" fill="none"><path d="M1 8s2.5-5 7-5 7 5 7 5-2.5 5-7 5-7-5-7-5z" stroke="#6b7280" stroke-width="1.4"/><circle cx="8" cy="8" r="2" stroke="#6b7280" stroke-width="1.3"/></svg></button></div>
         </div>
  @endforeach

@@ -31,7 +31,6 @@ class ClientController
     public function create()
     {
         $role = 'visitor' ;
-        $works = work::all() ;
         return view('Auth.client_register',compact('role')) ;
     }
 
@@ -60,7 +59,8 @@ class ClientController
      */
     public function show(client $client)
     {
-        //
+        $role = Auth::user()->role ;
+        return view('ClientProfile',compact('role','client'));
     }
 
     /**
@@ -68,7 +68,8 @@ class ClientController
      */
     public function edit(client $client)
     {
-        //
+        $role = 'client';
+        return view('Client.EditProfile',compact('client','role'));
     }
 
     /**
@@ -83,6 +84,7 @@ class ClientController
                 'ville' => $request->ville ,
                 'adress' => $request->adress ,
             ]);
+            return to_route('client.show',compact('client'));
     }
 
     /**

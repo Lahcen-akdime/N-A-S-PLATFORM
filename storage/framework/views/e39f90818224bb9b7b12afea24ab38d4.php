@@ -1,14 +1,13 @@
-@extends('layouts.app')
-@section('login_logout_buttons')
+<?php $__env->startSection('login_logout_buttons'); ?>
       <!-- CTA -->
       <div class="flex items-center gap-3">
-        <a href="{{route('Logout')}}" class="btn-primary text-sm font-semibold px-4 py-2 rounded-full hidden sm:inline-block">
+        <a href="<?php echo e(route('Logout')); ?>" class="btn-primary text-sm font-semibold px-4 py-2 rounded-full hidden sm:inline-block">
           Logout
         </a>
       </div>
-@endsection
+<?php $__env->stopSection(); ?>
   <!-- ===== MAIN ===== -->
-@section('maincontent')
+<?php $__env->startSection('maincontent'); ?>
 <!-- MAIN -->
   <main class="flex-1 flex items-center justify-center px-6 py-16 bg-gray-50">
     <div class="w-full max-w-xl flex flex-col gap-6">
@@ -25,7 +24,7 @@
             </svg>
           </div>
           <div>
-            <h1 class="text-xl font-bold text-gray-900 tracking-tight">{{$client->user->name}}</h1>
+            <h1 class="text-xl font-bold text-gray-900 tracking-tight"><?php echo e($client->user->name); ?></h1>
             <p class="text-sm text-gray-400 mt-0.5">Client</p>
           </div>
         </div>
@@ -44,7 +43,7 @@
             </div>
             <div>
               <p class="text-xs text-gray-400 font-medium uppercase tracking-widest">Nom complet</p>
-              <p class="text-sm font-semibold text-gray-900 mt-1">{{$client->user->name}}</p>
+              <p class="text-sm font-semibold text-gray-900 mt-1"><?php echo e($client->user->name); ?></p>
             </div>
           </div>
  
@@ -57,7 +56,7 @@
             </div>
             <div>
               <p class="text-xs text-gray-400 font-medium uppercase tracking-widest">Email</p>
-              <p class="text-sm font-semibold text-gray-900 mt-1">{{$client->user->email}}</p>
+              <p class="text-sm font-semibold text-gray-900 mt-1"><?php echo e($client->user->email); ?></p>
             </div>
           </div>
  
@@ -72,7 +71,7 @@
             </div>
             <div>
               <p class="text-xs text-gray-400 font-medium uppercase tracking-widest">Ville</p>
-              <p class="text-sm font-semibold text-gray-900 mt-1">{{$client->ville}}</p>
+              <p class="text-sm font-semibold text-gray-900 mt-1"><?php echo e($client->ville); ?></p>
             </div>
           </div>
  
@@ -85,7 +84,7 @@
             </div>
             <div>
               <p class="text-xs text-gray-400 font-medium uppercase tracking-widest">Adresse</p>
-              <p class="text-sm font-semibold text-gray-900 mt-1">{{$client->adress}}</p>
+              <p class="text-sm font-semibold text-gray-900 mt-1"><?php echo e($client->adress); ?></p>
             </div>
           </div>
  
@@ -94,17 +93,18 @@
         <div class="w-full border-t border-gray-100"></div>
  
         <!-- Edit button -->
-         @if($role == 'client')
-        <a href="{{route('client.edit',$client)}}"
+         <?php if($role == 'client'): ?>
+        <a href="<?php echo e(route('client.edit',$client)); ?>"
            class="btn-primary w-full flex items-center justify-center gap-2 px-5 py-3 rounded-full text-sm font-semibold">
           <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
             <path d="M11 2l3 3-8 8H3v-3l8-8z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
           Modifier mon profil
         </a>
-        @endif
+        <?php endif; ?>
       </div>
  
     </div>
   </main>
-@endsection
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layouts.app', array_diff_key(get_defined_vars(), ['__data' => 1, '__path' => 1]))->render(); ?><?php /**PATH C:\laragon\www\N-A-S\resources\views/ClientProfile.blade.php ENDPATH**/ ?>

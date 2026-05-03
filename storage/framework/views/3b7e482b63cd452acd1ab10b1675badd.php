@@ -2,7 +2,11 @@
         <div class="animate-fade-up delay-4 flex flex-col gap-1 w-full">
           <label class="text-xs font-medium text-gray-500 pl-1">Ville</label>
           <select name="ville" class="w-full px-4 py-3 rounded-xl border border-gray-200 bg-gray-50 text-sm text-gray-900 outline-none focus:border-gray-900 focus:bg-white focus:ring-2 focus:ring-gray-900/5 transition-all">
+          <?php if(Auth::user()): ?>
+            <option value="<?php echo e(Auth::user()->client->ville); ?>" selected><?php echo e(Auth::user()->client->ville); ?></option>
+            <?php else: ?>
             <option value="" disabled selected>Sélectionner une ville</option>
+          <?php endif; ?>
             <option value="Casablanca">Casablanca</option>
             <option value="Rabat">Rabat</option>
             <option value="Marrakech">Marrakech</option>
