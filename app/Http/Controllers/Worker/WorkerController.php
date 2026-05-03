@@ -83,7 +83,13 @@ class WorkerController
         $role = Auth::user()->role ;
         $worker = Worker::findOrFail($id) ;
         $imageUrl = asset('storage/' . $worker->profile_image);
-        return view('WorkerProfile',compact('worker','role','imageUrl'));
+        $certificate = Document::where('worker_id','=',$worker->id)->where('type','=','certificate')->first();
+        $deploma = Document::where('worker_id','=',$worker->id)->where('type','=','diploma')->first();
+        $cin = Document::where('worker_id','=',$worker->id)->where('type','=','national_card')->first();
+        $certificateUrl = asset('storage/' . $certificate->file_path);
+        $deplomaUrl = asset('storage/' . $deploma->file_path);
+        $cin = asset('storage/' . $cin->file_path);
+        return view('WorkerProfile',compact('worker','role','imageUrl','certificateUrl','deplomaUrl','cin'));
     }
 
 

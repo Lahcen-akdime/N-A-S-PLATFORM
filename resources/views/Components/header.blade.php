@@ -20,7 +20,7 @@
         @endif
         @if($role == 'client')
         <a href="{{route('demande.index')}}" class="hover:text-gray-900 transition-colors">Demandes</a>
-        <a href="{{route('demande.create')}}" class="hover:text-gray-900 transition-colors">Locate</a>
+        <a href="{{route('locate.create')}}" class="hover:text-gray-900 transition-colors">Locate</a>
         <a href="{{route('client.show',Auth::user()->client)}}" class="hover:text-gray-900 transition-colors">Profile</a>
         @elseif($role == 'worker')
         <a href="/profile/{{Auth::user()->worker->id}}" class="hover:text-gray-900 transition-colors">Profile</a>

@@ -20,7 +20,7 @@
         <?php endif; ?>
         <?php if($role == 'client'): ?>
         <a href="<?php echo e(route('demande.index')); ?>" class="hover:text-gray-900 transition-colors">Demandes</a>
-        <a href="<?php echo e(route('demande.create')); ?>" class="hover:text-gray-900 transition-colors">Locate</a>
+        <a href="<?php echo e(route('locate.create')); ?>" class="hover:text-gray-900 transition-colors">Locate</a>
         <a href="<?php echo e(route('client.show',Auth::user()->client)); ?>" class="hover:text-gray-900 transition-colors">Profile</a>
         <?php elseif($role == 'worker'): ?>
         <a href="/profile/<?php echo e(Auth::user()->worker->id); ?>" class="hover:text-gray-900 transition-colors">Profile</a>

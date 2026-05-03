@@ -95,14 +95,14 @@
         <p class="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-5">Certificats &amp; Documents</p>
         <div class="flex flex-wrap gap-3">
  
-          <a href="#" class="flex items-center gap-2 px-3 py-2 rounded-xl border border-gray-200 bg-white text-xs font-medium text-gray-700 hover:border-gray-400 hover:text-gray-900 transition-all">
+          <a href="<?php echo e($certificateUrl); ?>" class="flex items-center gap-2 px-3 py-2 rounded-xl border border-gray-200 bg-white text-xs font-medium text-gray-700 hover:border-gray-400 hover:text-gray-900 transition-all">
             <svg width="13" height="13" viewBox="0 0 16 16" fill="none">
               <path d="M4 2h6l4 4v8a1 1 0 01-1 1H4a1 1 0 01-1-1V3a1 1 0 011-1z" stroke="#9ca3af" stroke-width="1.3"/>
               <path d="M9 2v4h4" stroke="#9ca3af" stroke-width="1.3" stroke-linecap="round"/>
             </svg>
             Certificat_Plomberie.pdf
           </a>
- 
+          <?php if($role == 'admin'): ?>
           <a href="#" class="flex items-center gap-2 px-3 py-2 rounded-xl border border-gray-200 bg-white text-xs font-medium text-gray-700 hover:border-gray-400 hover:text-gray-900 transition-all">
             <svg width="13" height="13" viewBox="0 0 16 16" fill="none">
               <path d="M4 2h6l4 4v8a1 1 0 01-1 1H4a1 1 0 01-1-1V3a1 1 0 011-1z" stroke="#9ca3af" stroke-width="1.3"/>
@@ -110,13 +110,14 @@
             </svg>
             CIN.jpg
           </a>
+          <?php endif; ?>
  
-          <a href="#" class="flex items-center gap-2 px-3 py-2 rounded-xl border border-gray-200 bg-white text-xs font-medium text-gray-700 hover:border-gray-400 hover:text-gray-900 transition-all">
+          <a href="<?php echo e($deplomaUrl); ?>" class="flex items-center gap-2 px-3 py-2 rounded-xl border border-gray-200 bg-white text-xs font-medium text-gray-700 hover:border-gray-400 hover:text-gray-900 transition-all">
             <svg width="13" height="13" viewBox="0 0 16 16" fill="none">
               <path d="M4 2h6l4 4v8a1 1 0 01-1 1H4a1 1 0 01-1-1V3a1 1 0 011-1z" stroke="#9ca3af" stroke-width="1.3"/>
               <path d="M9 2v4h4" stroke="#9ca3af" stroke-width="1.3" stroke-linecap="round"/>
             </svg>
-            Attestation_formation.pdf
+            Deploma
           </a>
  
         </div>
