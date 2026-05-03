@@ -34,10 +34,12 @@ Route::middleware(login_middleware::class)->group(function () {
     });
 });
 
+Route::get('/filter/{type}',[ContactController::class,'filter'])->name('filterMessages');
 Route::resource('workerDemandes',WorkerDemandeController::class) ;
 
 Route::resource('Admin',AdminController::class);
 Route::patch('/accept/{worker}',[AdminController::class,'accept'])->name('accept');
+Route::patch('/refuse/{worker}',[AdminController::class,'refuse'])->name('refuse');
 Route::resource('work',WorkController::class);
 
 Route::resource('contact',ContactController::class);

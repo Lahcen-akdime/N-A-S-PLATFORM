@@ -1,14 +1,13 @@
-@extends('layouts.app')
-@section('login_logout_buttons')
+<?php $__env->startSection('login_logout_buttons'); ?>
       <!-- CTA -->
       <div class="flex items-center gap-3">
-        <a href="{{route('Logout')}}" class="btn-primary text-sm font-semibold px-4 py-2 rounded-full hidden sm:inline-block">
+        <a href="<?php echo e(route('Logout')); ?>" class="btn-primary text-sm font-semibold px-4 py-2 rounded-full hidden sm:inline-block">
           Logout
         </a>
       </div>
-@endsection
+<?php $__env->stopSection(); ?>
   <!-- ===== MAIN ===== -->
-@section('maincontent')
+<?php $__env->startSection('maincontent'); ?>
   <!-- MAIN -->
   <main class="flex-1 max-w-2xl mx-auto w-full px-6 py-16 flex flex-col gap-6">
  
@@ -32,14 +31,14 @@
           </svg>
         </div>
         <div class="flex-1 min-w-0">
-          <h1 class="text-lg font-bold text-gray-900 tracking-tight">{{$contact->name}}</h1>
-          <p class="text-sm text-gray-400 mt-0.5">{{$contact->email}}</p>
+          <h1 class="text-lg font-bold text-gray-900 tracking-tight"><?php echo e($contact->name); ?></h1>
+          <p class="text-sm text-gray-400 mt-0.5"><?php echo e($contact->email); ?></p>
         </div>
-        @if($contact->user_id != null)
+        <?php if($contact->user_id != null): ?>
         <span class="flex-shrink-0 text-xs font-semibold px-3 py-1 rounded-full bg-green-50 text-green-700 border border-green-100">Authentifié</span>
-        @else
+        <?php else: ?>
         <span class="flex-shrink-0 text-xs font-semibold px-3 py-1 rounded-full bg-red-50 text-red-700 border border-green-100">Pas Authentifié</span>
-        @endif
+        <?php endif; ?>
       </div>
  
       <div class="w-full border-t border-gray-100"></div>
@@ -56,7 +55,7 @@
           </div>
           <div>
             <p class="text-xs text-gray-400 font-medium uppercase tracking-widest">Email</p>
-            <p class="text-sm font-semibold text-gray-900 mt-1">{{$contact->email}}</p>
+            <p class="text-sm font-semibold text-gray-900 mt-1"><?php echo e($contact->email); ?></p>
           </div>
         </div>
  
@@ -69,7 +68,7 @@
           </div>
           <div>
             <p class="text-xs text-gray-400 font-medium uppercase tracking-widest">Date</p>
-            <p class="text-sm font-semibold text-gray-900 mt-1">{{$contact->created_at}}</p>
+            <p class="text-sm font-semibold text-gray-900 mt-1"><?php echo e($contact->created_at); ?></p>
           </div>
         </div>
  
@@ -81,7 +80,7 @@
           </div>
           <div>
             <p class="text-xs text-gray-400 font-medium uppercase tracking-widest">Sujet</p>
-            <span class="inline-block mt-1 text-xs font-semibold px-3 py-1 rounded-full bg-red-50 text-red-600 border border-red-100">{{$contact->subject}}</span>
+            <span class="inline-block mt-1 text-xs font-semibold px-3 py-1 rounded-full bg-red-50 text-red-600 border border-red-100"><?php echo e($contact->subject); ?></span>
           </div>
         </div>
  
@@ -94,7 +93,8 @@
         <p class="text-xs text-gray-400 font-medium uppercase tracking-widest">Message</p>
         <div class="w-full bg-gray-50 border border-gray-100 rounded-2xl px-6 py-5">
           <p class="text-sm text-gray-700 leading-loose">
-            {{$contact->message}}
+            <?php echo e($contact->message); ?>
+
           </p>
         </div>
       </div>
@@ -103,7 +103,7 @@
  
       <!-- Actions -->
       <div class="flex flex-col sm:flex-row gap-3 w-full">
-        <a href="{{route('contact.index')}}"
+        <a href="<?php echo e(route('contact.index')); ?>"
            class="btn-primary flex-1 flex items-center justify-center gap-2 px-5 py-3 rounded-full text-sm font-semibold">
           Retour
         </a>
@@ -112,4 +112,5 @@
     </div>
  
   </main>
-@endsection
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layouts.app', array_diff_key(get_defined_vars(), ['__data' => 1, '__path' => 1]))->render(); ?><?php /**PATH C:\laragon\www\N-A-S\resources\views/Admin/contactDetails.blade.php ENDPATH**/ ?>

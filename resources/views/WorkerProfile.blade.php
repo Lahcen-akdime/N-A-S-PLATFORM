@@ -154,7 +154,7 @@
             Accepter ✔️
           </button>
         </form>
-        <form action="{{route('accept',$worker)}}" method="post">
+        <form action="{{route('refuse',$worker)}}" method="post">
           @csrf
           @method('PATCH')
           <button

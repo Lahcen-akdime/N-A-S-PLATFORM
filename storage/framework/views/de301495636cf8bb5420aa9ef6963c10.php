@@ -26,9 +26,9 @@
  
     <!-- Filter tabs -->
     <div class="animate-fade-up delay-1 flex items-center gap-2 flex-wrap">
-      <button  class="filter-btn px-4 py-2 rounded-full text-sm font-semibold bg-gray-900 text-white transition-all">Tous <span class="ml-1 text-xs opacity-60"><?php echo e($messages->count()); ?></span></button>
-      <button  class="filter-btn px-4 py-2 rounded-full text-sm font-semibold  border border-gray-200  bg-gray-900 text-white hover:border-gray-400 transition-all">Authentifiés <span class="ml-1 text-xs opacity-60">4</span></button>
-      <button  class="filter-btn px-4 py-2 rounded-full text-sm font-semibold border border-gray-200  bg-gray-900 text-white hover:border-gray-400 transition-all">Anonymes <span class="ml-1 text-xs opacity-60">3</span></button>
+      <a href="/filter/all"  class="filter-btn px-4 py-2 rounded-full text-sm font-semibold bg-gray-900 text-white transition-all">Tous </a>
+      <a href="/filter/authenticated"  class="filter-btn px-4 py-2 rounded-full text-sm font-semibold  border border-gray-200  bg-gray-900 text-white hover:border-gray-400 transition-all">Authentifiés </a>
+      <a href="/filter/anonymos"  class="filter-btn px-4 py-2 rounded-full text-sm font-semibold border border-gray-200  bg-gray-900 text-white hover:border-gray-400 transition-all">Anonymes </a>
     </div>
  
     <!-- Table card -->
@@ -51,7 +51,8 @@
           <div class="col-span-2"><p class="text-sm font-semibold text-gray-900"><?php echo e($message->name); ?></p></div>
           <div class="col-span-2"><p class="text-sm text-gray-500 truncate"><?php echo e($message->email); ?></p></div>
           <div class="col-span-2"><span class="text-xs font-semibold px-2.5 py-1 rounded-full bg-red-50 text-red-600 border border-red-100"><?php echo e($message->subject); ?></span></div>
-          <div class="col-span-1 flex justify-end"><button onclick="openMsg(0)" class="w-8 h-8 rounded-xl border border-gray-200 bg-white flex items-center justify-center hover:border-gray-400 transition-all"><svg width="13" height="13" viewBox="0 0 16 16" fill="none"><path d="M1 8s2.5-5 7-5 7 5 7 5-2.5 5-7 5-7-5-7-5z" stroke="#6b7280" stroke-width="1.4"/><circle cx="8" cy="8" r="2" stroke="#6b7280" stroke-width="1.3"/></svg></button></div>
+          <div class="col-span-1 flex justify-end">
+            <a href="<?php echo e(route('contact.show',$message)); ?>" class="w-8 h-8 rounded-xl border border-gray-200 bg-white flex items-center justify-center hover:border-gray-400 transition-all"><svg width="13" height="13" viewBox="0 0 16 16" fill="none"><path d="M1 8s2.5-5 7-5 7 5 7 5-2.5 5-7 5-7-5-7-5z" stroke="#6b7280" stroke-width="1.4"/><circle cx="8" cy="8" r="2" stroke="#6b7280" stroke-width="1.3"/></svg></a></div>
         </div>
  <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
       </div>

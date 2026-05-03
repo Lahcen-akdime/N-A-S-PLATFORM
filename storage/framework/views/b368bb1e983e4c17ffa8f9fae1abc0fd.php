@@ -153,7 +153,7 @@
             Accepter ✔️
           </button>
         </form>
-        <form action="<?php echo e(route('accept',$worker)); ?>" method="post">
+        <form action="<?php echo e(route('refuse',$worker)); ?>" method="post">
           <?php echo csrf_field(); ?>
           <?php echo method_field('PATCH'); ?>
           <button

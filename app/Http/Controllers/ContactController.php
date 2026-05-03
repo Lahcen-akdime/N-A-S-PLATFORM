@@ -48,30 +48,24 @@ class ContactController extends Controller
      */
     public function show(Contact $contact)
     {
-        //
+        $role = 'admin' ;
+        return view('Admin.contactDetails',compact('contact','role'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Contact $contact)
+
+    public function filter(string $type)
     {
-        //
+    $role = 'admin';
+    if($type != 'all'){
+        if($type == 'authenticated'){
+         $messages = Contact::where('user_id','!=',null)->get();
+         }
+         elseif($type == 'anonymos'){
+             $messages = Contact::where('user_id','=',null)->get();
+        }
+        return view('Admin.contact',compact('messages','role'));
+    }
+       return to_route('contact.index');
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, Contact $contact)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(Contact $contact)
-    {
-        //
-    }
 }
